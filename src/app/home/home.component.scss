@@ -1,0 +1,53 @@
+.body-home{
+    background-color: #eee;
+}
+
+.featured{
+width: 100%;
+position: relative;
+overflow: hidden;
+}
+.featured img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.text {
+    position: absolute; /* Coloca el texto sobre la imagen */
+    top: 1px; /* Centra el texto verticalmente */
+    width: 100%;
+    left: 1px; /* Centra el texto horizontalmente */
+    font-size: 7lvw;
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados del fondo */
+    font-style:italic;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 10px; /* Coloca los botones en la parte inferior */
+    left: 0; /* Cambia a 0 para que ocupe todo el ancho */
+    width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho */
+    display: flex;
+    justify-content: space-around; /* Acomoda los botones con espacio entre ellos */
+}
+
+.btn-orden {
+    border: none;
+    flex: 1; /* Esto hará que los botones ocupen el mismo espacio */
+    margin: 0 5px; /* Espacio entre los botones */
+    cursor: pointer;
+    padding: 10px 0; /* Espaciado vertical dentro de los botones */
+}
+
+.btn-compra {
+    background-color: rgba(168, 245, 26, 0.692); 
+}
+
+.btn-carrito {
+    background-color: rgba(255, 208, 0, 0.863); 
+}
