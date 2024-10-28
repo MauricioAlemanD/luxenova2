@@ -1,13 +1,219 @@
-<div class="body-home">
-    <div class="featured">
-        <img src="assets/img/home/home1.jpg" alt="">
-        <div class="text">
-            <p>NUEVOS SABORES</p>
-            <p>AEROSOLES TROPICALES</p>
-        </div>
-        <div class="buttons">
-            <button class="btn-orden btn-compra">Comprar</button>
-            <button class="btn-orden btn-carrito">Añadir al carrito</button>
+<div class="main">
+    <div class="body-home container mx-auto my-4">
+        <div class="featured position-relative overflow-hidden shadow-lg rounded bg-dark text-white">
+            <!-- Imagen de fondo -->
+            <img src="assets/img/home/home1.jpg" class="img-fluid w-100 h-auto" alt="Aerosoles Tropicales">
+    
+            <!-- Texto destacado sobre la imagen -->
+            <div class="text position-absolute top-50 start-50 translate-middle text-center p-3">
+                <h2 class="display-4 fw-bold">NUEVOS SABORES</h2>
+                <p class="lead">AEROSOLES TROPICALES</p>
+            </div>
+    
+            <!-- Botones -->
+            <div class="buttons position-absolute bottom-0 w-100 d-flex mb-3">
+                <button class="btn btn-compra btn-lg flex-fill">Comprar</button>
+                <button class="btn btn-carrito btn-lg flex-fill">Añadir al carrito</button>
+            </div>
+            
         </div>
     </div>
+
+    <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="product-card">
+                            <img src="assets/img/products/producto-1.jpg" class="img-fluid" alt="Producto 1">
+                            <div class="product-info">
+                                <h5 class="product-name">Producto 1</h5>
+                                <p class="product-description">Descripción breve del producto 1.</p>
+                            </div>
+                            <h5 class="product-price">Precio: $19.99</h5>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="product-card">
+                            <img src="assets/img/products/producto-2.jpg" class="img-fluid" alt="Producto 2">
+                            <div class="product-info">
+                                <h5 class="product-name">Producto 2</h5>
+                                <p class="product-description">Descripción breve del producto 2.</p>
+                            </div>
+                            <h5 class="product-price">Precio: $24.99</h5>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="product-card">
+                            <img src="assets/img/products/producto-3.jpg" class="img-fluid" alt="Producto 3">
+                            <div class="product-info">
+                                <h5 class="product-name">Producto 3</h5>
+                                <p class="product-description">Descripción breve del producto 3.</p>
+                            </div>
+                            <h5 class="product-price">Precio: $29.99</h5>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="product-card">
+                            <img src="assets/img/products/producto-4.jpg" class="img-fluid" alt="Producto 4">
+                            <div class="product-info">
+                                <h5 class="product-name">Producto 4</h5>
+                                <p class="product-description">Descripción breve del producto 4.</p>
+                            </div>
+                            <h5 class="product-price">Precio: $34.99</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="product-card">
+                            <img src="assets/img/products/producto-5.jpg" class="img-fluid" alt="Producto 5">
+                            <div class="product-info">
+                                <h5 class="product-name">Producto 5</h5>
+                                <p class="product-description">Descripción breve del producto 5.</p>
+                            </div>
+                            <h5 class="product-price">Precio: $39.99</h5>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="product-card">
+                            <img src="assets/img/products/producto-6.jpg" class="img-fluid" alt="Producto 6">
+                            <div class="product-info">
+                                <h5 class="product-name">Producto 6</h5>
+                                <p class="product-description">Descripción breve del producto 6.</p>
+                            </div>
+                            <h5 class="product-price">Precio: $44.99</h5>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="product-card">
+                            <img src="assets/img/products/producto-7.jpg" class="img-fluid" alt="Producto 7">
+                            <div class="product-info">
+                                <h5 class="product-name">Producto 7</h5>
+                                <p class="product-description">Descripción breve del producto 7.</p>
+                            </div>
+                            <h5 class="product-price">Precio: $39.99</h5>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="product-card">
+                            <img src="assets/img/products/producto-8.jpg" class="img-fluid" alt="Producto 8">
+                            <div class="product-info">
+                                <h5 class="product-name">Producto 8</h5>
+                                <p class="product-description">Descripción breve del producto 8.</p>
+                            </div>
+                            <h5 class="product-price">Precio: $44.99</h5>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+    
+
+    
+    <div class="account-suggestion text-center my-4">
+        <h5>¿Ya tienes una cuenta?</h5>
+        <p>Inicia sesión para disfrutar de todas nuestras funciones.</p>
+        <a [routerLink]="['/ingreso']" routerLinkActive="router-link-active" class="btn btn-ligth ">Iniciar sesión</a>
+    
+        <h5 class="mt-3">¿No tienes una cuenta?</h5>
+        <p>Regístrate ahora y comienza a disfrutar de nuestros productos.</p>
+        <a [routerLink]="['/registro']" routerLinkActive="router-link-active" class="btn btn-ligth">Crear cuenta</a>
+    </div>
+    
+    <div class="featured-banner my-4">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <div class="product-card-f position-relative">
+                    <img src="assets/img/products/destacado/producto-destacado-1.jpg" class="img-fluid" alt="Producto Destacado 1">
+                    <div class="overlay">
+                        <h5 class="product-name">Nombre del Producto 1</h5>
+                        <p class="product-description">Descripción breve del producto 1.</p>
+                        <h5 class="product-price">Precio: $49.99</h5>
+                        <div class="buttons">
+                            <button class="btn btn-dark">Comprar</button>
+                            <button class="btn btn-dark">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="product-card-f position-relative">
+                    <img src="assets/img/products/destacado/producto-destacado-2.jpg" class="img-fluid" alt="Producto Destacado 2">
+                    <div class="overlay">
+                        <h5 class="product-name">Nombre del Producto 2</h5>
+                        <p class="product-description">Descripción breve del producto 2.</p>
+                        <h5 class="product-price">Precio: $59.99</h5>
+                        <div class="buttons">
+                            <button class="btn btn-dark">Comprar</button>
+                            <button class="btn btn-dark">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories-banner my-4">
+        <h2 class="text-center">Categorías de Vapeadores</h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="category-card">
+                    <h5 class="category-name">Vapeadores Portátiles</h5>
+                    <p class="category-description">Descubre nuestra variedad de vapeadores compactos y fáciles de llevar.</p>
+                    <a href="categoria-portatiles.html" class="btn btn-dark no-radius">Ver Productos</a>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="category-card">
+                    <h5 class="category-name">Vapeadores de Mesa</h5>
+                    <p class="category-description">Conoce nuestros vapeadores de mesa para una experiencia más intensa.</p>
+                    <a href="categoria-mesa.html" class="btn btn-dark no-radius">Ver Productos</a>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="category-card">                    
+                    <h5 class="category-name">Vapeadores Desechables</h5>
+                    <p class="category-description">Prueba nuestros vapeadores desechables, ideales para probar nuevos sabores.</p>
+                    <a href="categoria-desechables.html" class="btn btn-dark no-radius">Ver Productos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="brands-grid my-4">
+        <h2 class="text-center">Marcas de Vapeadores</h2>
+        <div class="row">
+            <div class="col-md-2 col-4 text-center">
+                <img src="assets/img/brands/vape.png" class="img-fluid" alt="Marca 1">
+            </div>
+            <div class="col-md-2 col-4 text-center">
+                <img src="assets/img/brands/vape.png" class="img-fluid" alt="Marca 2">
+            </div>
+            <div class="col-md-2 col-4 text-center">
+                <img src="assets/img/brands/vape.png" class="img-fluid" alt="Marca 3">
+            </div>
+            <div class="col-md-2 col-4 text-center">
+                <img src="assets/img/brands/vape.png" class="img-fluid" alt="Marca 4">
+            </div>
+            <div class="col-md-2 col-4 text-center">
+                <img src="assets/img/brands/vape.png" class="img-fluid" alt="Marca 5">
+            </div>
+            <div class="col-md-2 col-4 text-center">
+                <img src="assets/img/brands/vape.png" class="img-fluid" alt="Marca 6">
+            </div>
+        </div>
+    </div>
+
 </div>

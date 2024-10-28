@@ -1,0 +1,8 @@
+<div class="product-card">
+    <img [src]="imageUrl" class="img-fluid" alt="{{ productName }}">
+    <h5>{{ productName }}</h5>
+    <p class="product-price">Precio: ${{ productPrice.toFixed(2) }}</p>
+    <p>{{ productDescription }}</p>
+    <p>Cantidad en stock: {{ stockQuantity }}</p>
+    <button class="btn btn-dark">Agregar al carrito</button>
+</div>

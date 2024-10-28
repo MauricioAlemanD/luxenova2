@@ -1,1 +1,20 @@
-<p>opinions works!</p>
+
+<div class="container-fluid container-review-personal">
+  <h4>¿Haz comprado con nosotros?, ¡Deja tu opinión!</h4>
+<button class="btn btn-primary btn-opinion" (click)="writeReview()">Escribir Reseña de Producto</button>
+
+</div>
+
+<div class="reseñas-relevantes container-fluid">
+  <h4>Reseñas Relevantes</h4>
+  <div *ngFor="let review of reviews">
+    <app-user-opinion
+      [productName]="review.productName"
+      [username]="review.username"
+      [rating]="review.rating"
+      [imageUrl]="review.imageUrl"
+      [review]="review.review"
+      [date]="review.date">
+    </app-user-opinion>
+  </div>
+</div>

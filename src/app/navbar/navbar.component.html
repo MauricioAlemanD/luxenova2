@@ -1,26 +1,55 @@
-<div class="navbar">
-    <div class="logo"><a [routerLink]="['/']" routerLinkActive="router-link-active" ><img src="assets/img/logo-w.jpg" alt="Logo" width="100px"></a></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand font-weight-bold finger-paint-regular" [routerLink]="['/']">LUXENOVA</a>
 
-    <div class="search">        
-        <input id="impt-search" type="text" *ngIf="showSearchInput">  
-        <button><img src="assets/img/icons/search-interface-symbol.png" alt="carrito" width="25px" *ngIf="showSearchInput"></button>  
-        <a (click)="toggleSearchInput()" [routerLink]="['/search']" routerLinkActive="router-link-active" *ngIf="HideSearchInput"><img src="assets/img/icons/search-interface-symbol.png" alt="carrito" width="25px"></a>
+        <!-- Search Input (Shown/Hidden) -->
+        <div class="search-container d-flex align-items-center">
+            <input id="impt-search" type="text" class="form-control mr-2" *ngIf="showSearchInput">
+            <button class="btn btn-outline-secondary" *ngIf="showSearchInput">
+                <img src="assets/img/icons/search-interface-symbol.png" alt="Buscar" width="20px">
+            </button>
+            <a (click)="toggleSearchInput()" [routerLink]="['/search']" routerLinkActive="router-link-active" class="btn" *ngIf="HideSearchInput">
+                <img src="assets/img/icons/search-interface-symbol.png" alt="Buscar" width="20px">
+            </a>
+        </div>
+
+        <!-- Navbar Toggler (for mobile view) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/tienda']" routerLinkActive="router-link-active">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/opiniones']" routerLinkActive="router-link-active">Opiniones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/sobre_nosotros']" routerLinkActive="router-link-active">Sobre Nosotros</a>
+                </li>
+
+                <!-- User Actions -->
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/ingreso']" routerLinkActive="router-link-active">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/registro']" routerLinkActive="router-link-active">Registrarse</a>
+                </li>
+
+                <!-- Shopping Cart -->
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/carrito']" routerLinkActive="router-link-active">
+                        <img src="assets/img/icons/shopping-cart.png" alt="Carrito" width="25px">
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-
-    <div class="nav-links">
-        <a [routerLink]="['/']" routerLinkActive="router-link-active" >Inicio</a>
-        <a [routerLink]="['/tienda']" routerLinkActive="router-link-active" >Tienda</a>
-        <a [routerLink]="['/opiniones']" routerLinkActive="router-link-active" >Opiniones</a>
-        <a [routerLink]="['/sobre_nosotros']" routerLinkActive="router-link-active" >Sobre nosotros</a>
-    </div>
-
-    <div class="user-actions">
-        <a [routerLink]="['/ingreso']" routerLinkActive="router-link-active" >Iniciar sesión</a>
-        <a [routerLink]="['/registro']" routerLinkActive="router-link-active" >Registrarse</a>        
-    </div>    
-
-    <div class="shopping-cart">              
-        <a [routerLink]="['/carrito']" routerLinkActive="router-link-active" ><img src="assets/img/icons/shopping-cart.png" alt="carrito" width="40px"></a>        
-    </div>
-
-</div>
+</nav>

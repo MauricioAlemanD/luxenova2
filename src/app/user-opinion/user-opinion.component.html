@@ -1,0 +1,15 @@
+<div class="reseña">    
+    <h5>{{ productName }}</h5>
+    <h6>{{ username }}</h6>
+    <div class="rating">
+      <span *ngFor="let star of [].constructor(5); let i = index">
+        <i [ngClass]="i < rating ? 'fas fa-star' : 'far fa-star'"></i>
+      </span>
+    </div>
+    <div class="img-container">
+      <img [src]="imageUrl" alt="{{ productName }}" class="img-fluid">
+    </div>
+    <p>{{ review }}</p>
+    <small>{{ date }}</small>
+  </div>
+  

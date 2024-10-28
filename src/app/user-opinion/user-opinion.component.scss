@@ -1,0 +1,21 @@
+.reseña {
+  width: 80vw;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+  
+.rating {
+    color: #f39c12; /* Color de las estrellas */
+}
+  
+.img-container{
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  max-width: 400px; /* Ajustar el tamaño de la imagen */
+  margin-top: 10px;
+}

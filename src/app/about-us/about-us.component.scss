@@ -1,0 +1,33 @@
+.about-us {
+
+    .logo-centered{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .display-6 {
+      font-weight: bold;
+      color: #007bff; // Color primario o personalizado
+    }
+  
+    .text-secondary {
+      color: #6c757d; // Tono sutil para subtítulos
+    }
+  
+    .list-group-item {
+      border: none; // Eliminar bordes de la lista para un diseño limpio
+      padding: 10px 0;
+  
+      i {
+        font-size: 1.2rem;
+      }
+    }
+  
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+  

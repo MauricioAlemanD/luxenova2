@@ -1,0 +1,18 @@
+footer {
+    background-color: #000000; /* Color de fondo oscuro */
+}
+
+footer h5 {
+    border-bottom: 2px solid #ffc107; /* Línea inferior amarilla */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+footer a {
+    color: #ffc107; /* Color del texto de los enlaces */
+    text-decoration: none; /* Sin subrayado en enlaces */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}

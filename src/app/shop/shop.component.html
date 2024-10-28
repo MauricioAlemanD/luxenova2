@@ -1,8 +1,54 @@
-<div class="body-shop">
-    <p>shop works!</p>
-    <p>shop works!</p>
-    <p>shop works!</p>
-    <p>shop works!</p>
-    <p>shop works!</p>
+<div class="shop-container container px-1">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Aquí puedes colocar filtros de búsqueda -->
+            <h5>Filtros</h5>
+            
+            <!-- Filtro por Precio -->
+            <div class="filter-card">
+              <h6>Rango de Precio</h6>
+              <div class="price-slider">
+                <label for="minPrice">Mínimo: ${{ minPrice }}</label>
+                <input type="range" id="minPrice" [(ngModel)]="minPrice" (input)="applyFilters()" min="0" max="100" step="1">
+                <label for="maxPrice">Máximo: ${{ maxPrice }}</label>
+                <input type="range" id="maxPrice" [(ngModel)]="maxPrice" (input)="applyFilters()" min="0" max="100" step="1">
+              </div>
+            </div>
+        
+            <!-- Filtro por Stock -->
+            <div class="filter-card">
+              <h6>Disponibilidad</h6>
+              <label class="checkbox-container">
+                Solo productos en stock
+                <input type="checkbox" [(ngModel)]="inStock" (change)="applyFilters()">
+                
+              </label>
+            </div>
+        
+            <!-- Filtro por Categoría -->
+            <div class="filter-card">
+              <h6>Categorías</h6>
+              <select class="category-select" [(ngModel)]="selectedCategory" (change)="applyFilters()">
+                <option value="">Todas</option>
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+              </select>
+            </div>
 
+            <button class="filter-card btn btn-dark" style="background-color: black; border-radius: 0; width: 100%;">Aplicar filtros</button>
+            
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let product of products">
+                    <app-item-shop>
+                        [imageUrl]="product.imageUrl" 
+                        [productName]="product.productName" 
+                        [productPrice]="product.productPrice" 
+                        [productDescription]="product.productDescription" 
+                        [stockQuantity]="product.stockQuantity">
+                    </app-item-shop>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

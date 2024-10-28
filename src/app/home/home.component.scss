@@ -1,53 +1,236 @@
-.body-home{
-    background-color: #eee;
+.main {
+    background-color: #000; /* Fondo negro para el contenedor principal */
+    padding: 1em; /* Espaciado interno */
 }
 
-.featured{
-width: 100%;
-position: relative;
-overflow: hidden;
+.body-home {
+    background-color: #000; /* Fondo negro para la sección de inicio */
 }
-.featured img{
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
+
+.featured {
+    position: relative;
+    max-width: 100%;    
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Para ocultar cualquier contenido que sobresalga */
+}
+
+.featured img {
+    width: 100%; /* Asegúrate de que la imagen ocupe todo el ancho */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
 }
 
 .text {
-    position: absolute; /* Coloca el texto sobre la imagen */
-    top: 1px; /* Centra el texto verticalmente */
-    width: 100%;
-    left: 1px; /* Centra el texto horizontalmente */
-    font-size: 7lvw;
-    color: white; /* Color del texto */
-    text-align: center; /* Centra el texto */
-    background-color: rgba(0, 0, 0, 0.5); 
+    color: #ffffff; /* Color del texto */
+    font-style: italic; /* Estilo de texto en cursiva */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
     padding: 10px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados del fondo */
-    font-style:italic;
+    border-radius: 8px; /* Bordes redondeados */
+    position: absolute; /* Permite colocar el texto sobre la imagen */
+    top: 10%; /* Ajusta la posición del texto */
+    left: 50%; /* Centra el texto horizontalmente */
+    transform: translateX(-50%); /* Compensa el centrado */
 }
 
 .buttons {
-    position: absolute;
-    bottom: 10px; /* Coloca los botones en la parte inferior */
-    left: 0; /* Cambia a 0 para que ocupe todo el ancho */
-    width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho */
-    display: flex;
-    justify-content: space-around; /* Acomoda los botones con espacio entre ellos */
+    position: absolute; /* Coloca los botones sobre la imagen */
+    bottom: 10px; /* Ajusta la posición de los botones */
+    left: 50%; /* Centra los botones horizontalmente */
+    transform: translateX(-50%); /* Compensa el centrado */
+    width: 90%; /* Anchura del contenedor de botones */
+    display: flex; /* Usar flexbox para distribuir los botones */
+    justify-content: space-between; /* Espacio entre los botones */
 }
 
-.btn-orden {
-    border: none;
-    flex: 1; /* Esto hará que los botones ocupen el mismo espacio */
+.buttons .btn {
+    flex: 1; /* Cada botón ocupa espacio igual */
     margin: 0 5px; /* Espacio entre los botones */
-    cursor: pointer;
-    padding: 10px 0; /* Espaciado vertical dentro de los botones */
+    border-radius: 0; /* Quita el borde redondeado para que se vean como bloques */
+    color: #e6e6e6; /* Color del texto */
+    font-weight: bold; /* Negrita */
+    transition: filter 0.2s; /* Efecto de transición al hacer hover */
 }
 
-.btn-compra {
-    background-color: rgba(168, 245, 26, 0.692); 
+.buttons .btn-compra {
+    background-color: rgba(71, 71, 71, 0.8); /* Fondo del botón de compra */
 }
 
-.btn-carrito {
-    background-color: rgba(255, 208, 0, 0.863); 
+.buttons .btn-carrito {
+    background-color: rgba(88, 88, 88, 0.8); /* Fondo del botón de carrito */
+}
+
+.buttons .btn:hover {
+    filter: brightness(0.9); /* Oscurece el botón al hacer hover */
+}
+
+.product-card {
+    position: relative; /* Permite posicionar elementos dentro de la tarjeta */
+    cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    margin: 10px; /* Espacio entre tarjetas */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+}
+
+.product-card img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 200px; /* Fija una altura para todas las imágenes */
+    object-fit: cover; /* Mantiene la proporción de la imagen y recorta si es necesario */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+}
+.product-info {
+    position: absolute; /* Posiciona el contenido de información */
+    bottom: 0; /* Alinea al fondo */
+    left: 0; /* Alinea a la izquierda */
+    right: 0; /* Alinea a la derecha */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    color: #ffffff; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    opacity: 0; /* Oculta el contenido por defecto */
+    transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.product-card:hover .product-info {
+    opacity: 1; /* Muestra el contenido al hacer hover */
+}
+
+.product-price {
+    color: #ffffff; /* Color del texto */
+    font-weight: bold; /* Negrita */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 0 0 8px 8px; /* Bordes redondeados en la parte inferior */
+    margin: 0; /* Sin margen para alinear */
+}
+
+.account-suggestion {
+    height: 50vh;
+    background-color: #ffffff; /* Fondo claro */
+    border: 1px solid #dee2e6; /* Borde gris */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.account-suggestion h5 {
+    font-weight: bold; /* Negrita para los títulos */
+    margin: 10px 0; /* Margen vertical */
+}
+
+.account-suggestion p {
+    margin: 5px 0 15px; /* Margen entre párrafos */
+}
+
+.account-suggestion .btn {
+    width: 40vw;
+    background-color: transparent;
+    margin: 5px; /* Espacio entre botones */
+    border-radius: 0px;
+    border: #000 1px solid;
+}
+
+.featured-banner {
+    background-color: #000; /* Fondo negro para el banner */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.product-card-f {
+    position: relative; /* Para posicionar el overlay */
+    overflow: hidden; /* Ocultar contenido que sobresalga */
+    margin-bottom: 1em;
+}
+
+.product-card-f img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 80vh; /* Fija una altura para todas las imágenes */
+    object-fit: cover; /* Mantiene la proporción de la imagen y recorta si es necesario */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+}
+
+.overlay {
+    position: absolute; /* Posicionar sobre la imagen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    color: #fff; /* Color del texto */
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s; /* Transición suave */
+    display: flex; /* Usar flexbox para centrar el contenido */
+    flex-direction: column; /* Apilar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    padding: 20px; /* Espaciado interno */
+}
+
+.product-card-f:hover .overlay {
+    opacity: 1; /* Mostrar overlay al pasar el cursor */
+}
+
+
+.product-name {
+    font-weight: bold; /* Negrita para el nombre */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+.product-description {
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+.categories-banner {
+    padding: 20px; /* Espaciado interno */
+    background-color: #f8f9fa; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.category-card {
+    height: 20vh;
+    background-color: #fff; /* Fondo blanco para cada tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    margin: 10px; /* Margen entre tarjetas */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: transform 0.2s; /* Transición suave al pasar el cursor */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.category-card:hover {
+    transform: scale(1.05); /* Ampliar la tarjeta al pasar el cursor */
+}
+
+.category-name {
+    font-weight: bold; /* Negrita para el nombre de la categoría */
+    margin-top: 10px; /* Margen superior */
+}
+
+.category-description {
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+.no-radius{
+    border-radius: 0;
+}
+
+.brands-grid {
+    padding: 20px; /* Espaciado interno */
+    background-color: #f8f9fa; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.brands-grid img {
+    max-width: 100%; /* Asegura que las imágenes no se desborden */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    margin-bottom: 10px; /* Margen inferior para separación */
 }
