@@ -1,0 +1,54 @@
+#novedadesCarousel {
+    background-color: #000; /* Fondo negro para el carrusel */
+}
+
+.carousel-item {
+    padding: 1em; /* Espaciado para los elementos del carrusel */
+}
+
+.product-card {
+    position: relative; /* Para posicionar elementos dentro de la tarjeta */
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    margin: 10px; /* Espacio entre tarjetas */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: rgba(57, 62, 70, 0.8); /* Fondo semi-transparente */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+}
+
+.product-card img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 200px; /* Fija una altura para todas las imágenes */
+    object-fit: cover; /* Mantiene la proporción de la imagen y recorta si es necesario */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+}
+
+.product-info {
+    position: absolute; /* Posiciona el contenido de información */
+    bottom: 0; /* Alinea al fondo */
+    left: 0; /* Alinea a la izquierda */
+    right: 0; /* Alinea a la derecha */
+    background-color: rgba(230, 44, 51, 0.9); /* Fondo semi-transparente */
+    color: #ffffff; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    opacity: 0; /* Oculta el contenido por defecto */
+    transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.product-card:hover .product-info {
+    opacity: 1; /* Muestra el contenido al hacer hover */
+}
+
+.product-price {
+    color: #ffffff; /* Color del texto */
+    font-weight: bold; /* Negrita */
+    background-color: rgba(57, 62, 70, 0.8); /* Fondo semi-transparente */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 0; /* Sin margen para alinear */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0, 0, 0, 0); /* Fondo semi-transparente para controles */
+   width: 5%;
+}

@@ -1,3 +1,5 @@
+$color-primario: #e62c33;
+
 .navbar {
     font-family: 'Arial', sans-serif;
 }
@@ -14,7 +16,7 @@
 }
 
 .navbar .nav-link:hover {
-    color: #fa9907;
+    color: $color-primario;
     background-color: #f8f9fa;
 }
 
@@ -34,4 +36,32 @@
 
 .shopping-cart img:hover {
     transform: scale(1.1);
+}
+
+.t-c-p{
+    color: $color-primario !important;
+}
+.t-c-p:hover{
+    color: #343a40 !important;
+}
+
+.t-c-b{
+    border: $color-primario solid 1px;
+    border-radius: 0 !important;
+}
+
+.no-outline {
+    border: 1px solid $color-primario;
+    padding: 5px 7px;
+    transition: border-color 0.3s ease; /* Añadir una transición para un efecto suave */
+}
+
+.no-outline:focus {
+    outline: none; /* Elimina el borde azul predeterminado */
+    border: 1px solid $color-primario; /* Mantiene el mismo color en el foco */
+    box-shadow: none; /* Elimina cualquier sombra que Bootstrap pueda aplicar */
+}
+
+.no-outline:focus-within {
+    border: 1px solid $color-primario; /* Asegúrate de que se aplique en el foco dentro */
 }

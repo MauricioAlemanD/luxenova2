@@ -5,12 +5,12 @@
 
         <!-- Search Input (Shown/Hidden) -->
         <div class="search-container d-flex align-items-center">
-            <input id="impt-search" type="text" class="form-control mr-2" *ngIf="showSearchInput">
-            <button class="btn btn-outline-secondary" *ngIf="showSearchInput">
-                <img src="assets/img/icons/search-interface-symbol.png" alt="Buscar" width="20px">
+            <input id="impt-search" type="text" class="mr-2 no-outline" *ngIf="showSearchInput">
+            <button class="btn btn-outline-secondary nav-link" *ngIf="showSearchInput">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
-            <a (click)="toggleSearchInput()" [routerLink]="['/search']" routerLinkActive="router-link-active" class="btn" *ngIf="HideSearchInput">
-                <img src="assets/img/icons/search-interface-symbol.png" alt="Buscar" width="20px">
+            <a (click)="toggleSearchInput()" [routerLink]="['/search']" routerLinkActive="router-link-active" class="btn nav-link" *ngIf="HideSearchInput">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </a>
         </div>
 
@@ -37,18 +37,19 @@
 
                 <!-- User Actions -->
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/ingreso']" routerLinkActive="router-link-active">Iniciar Sesión</a>
+                    <a class="nav-link t-c-p" [routerLink]="['/ingreso']" routerLinkActive="router-link-active">Iniciar Sesión</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item t-c-b">
                     <a class="nav-link" [routerLink]="['/registro']" routerLinkActive="router-link-active">Registrarse</a>
                 </li>
 
                 <!-- Shopping Cart -->
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/carrito']" routerLinkActive="router-link-active">
-                        <img src="assets/img/icons/shopping-cart.png" alt="Carrito" width="25px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                     </a>
                 </li>
+                
             </ul>
         </div>
     </div>

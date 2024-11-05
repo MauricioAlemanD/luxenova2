@@ -1,1 +1,54 @@
-<p>sigin works!</p>
+<div class="container-fluid">
+    <div class="row m-0">
+        <div class="col-lg-6 col-md-6 col-sm-12 login p-0 m-0">
+            
+            <div class="container login">
+
+                <a class="navbar-brand font-weight-bold finger-paint-regular luxe" [routerLink]="['/']" alt="Inicio">
+                    <svg width="25px" height="25px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z" fill="#000000"/>
+                    </svg>   LUXENOVA</a>
+                <br>
+                <br>
+                <br>
+                <h2>¡Bienvenido! <br> Regístrate para empezar</h2>
+                <br>
+                <br>
+                <h4 class="cuat">Únete y comienza a comprar</h4>
+                <br>
+                <form class="login-form">
+                    <div class="form-group">
+                        <label for="nombre" class="">Nombre completo</label>
+                        <input type="text" class="form-control mb-4 no-outline" name="nombre" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="">Correo electrónico</label>
+                        <input type="email" class="form-control mb-4 no-outline" name="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono" class="">Número de teléfono</label>
+                        <input type="tel" class="form-control mb-4 no-outline" name="telefono" id="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="">Contraseña</label>
+                        <input type="password" class="form-control mb-2 no-outline" name="password" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmar-password" class="">Confirmar contraseña</label>
+                        <input type="password" class="form-control mb-2 no-outline" name="confirmar-password" id="confirmar-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block">Registrarse</button>
+                </form>
+                <div class="sig">
+                    <span>¿Ya tienes cuenta? </span><a href="/ingreso">Inicia sesión aquí</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-0 img p-0 m-0">
+            <div class="image-container">
+                <img src="assets/img/products/producto-7.jpg" alt="Producto" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>

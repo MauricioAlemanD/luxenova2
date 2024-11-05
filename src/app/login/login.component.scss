@@ -1,0 +1,147 @@
+
+$color-primario: #e62c33;
+$color-secundario: #393e46;
+$color-terciario: #eeee;
+$color-contraste-1: #6a9ab0;
+$color-contraste-2: #3a6d8c;
+$black:#000;
+
+$color-primario-70: #e62c32cb;
+$color-secundario-70: #393e46d5;
+$color-contraste-1-70: #3a6d8cda;
+
+.luxe{
+    font-size: 25px;
+    padding-bottom: 50px;
+}
+
+h2{
+    font-size: 50px;
+    color: $color-secundario;
+}
+
+.cuat{
+    color: $color-secundario-70;
+    font-style: italic;
+}
+
+.container-fluid {
+    height: 100vh;
+    padding: 0; /* Para eliminar padding adicional */
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+}
+
+.img {
+    height: 100%;
+}
+
+.image-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+    height: 100%; /* Asegura que la imagen ocupe todo el alto */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+.login{
+    padding-top: 5vw;
+    padding-left: 7vw;
+    padding-right: 7vw;
+}
+
+.no-outline {
+    border: 1px solid $color-primario-70;
+    padding: 5px 7px;
+    transition: border-color 0.3s ease; /* Añadir una transición para un efecto suave */
+}
+
+.no-outline:focus {
+    outline: none; /* Elimina el borde azul predeterminado */
+    border: 1px solid $color-primario; /* Mantiene el mismo color en el foco */
+    box-shadow:deeppink; /* Elimina cualquier sombra que Bootstrap pueda aplicar */
+}
+
+.no-outline:focus-within {
+    border: 1px solid $color-primario; /* Asegúrate de que se aplique en el foco dentro */
+}
+
+
+
+.login-form .form-control {
+    border: 1px solid #ccc; /* Color del borde */
+    border-radius: 4px; /* Esquinas redondeadas */
+    padding: 10px; /* Espaciado interno */
+    transition: box-shadow 0.3s ease; /* Transición suave al enfocar */
+}
+
+.login-form .form-control:focus {
+    border-color: $color-primario; /* Color del borde al enfocar */
+    box-shadow: 0 4px 8px $color-primario-70; /* Sombra al enfocar */
+    outline: none; /* Quitar el contorno predeterminado */
+}
+
+.btn{
+    border-radius: 4px;
+    background-color: $color-primario-70;
+}
+
+.btn:hover{
+    background-color: $color-primario;
+}
+
+.log-set{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.for{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.for a{
+    outline-color: $color-primario-70;
+    color: $color-primario;
+}
+
+.rem input{
+    background-color: $color-primario-70;
+    margin-right: 10px;
+}
+
+.sig{
+    margin-top: 40px;
+    color: $color-secundario;
+    outline: none;
+    text-decoration: none;
+}
+
+.sig a{
+    color: $color-primario;
+    outline: none;
+    text-decoration: none;
+}
+
+@media (max-width:768px) {
+    .img{
+        display: none;
+    }
+}
+

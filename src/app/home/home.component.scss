@@ -1,10 +1,21 @@
+$color-primario: #e62c33;
+$color-secundario: #393e46;
+$color-terciario: #eeee;
+$color-contraste-1: #6a9ab0;
+$color-contraste-2: #3a6d8c;
+$black:#000;
+
+$color-primario-70: #e62c32cb;
+$color-secundario-70: #393e46d5;
+$color-contraste-1-70: #3a6d8cda;
+
 .main {
-    background-color: #000; /* Fondo negro para el contenedor principal */
+    background-color: $black; /* Fondo negro para el contenedor principal */
     padding: 1em; /* Espaciado interno */
 }
 
 .body-home {
-    background-color: #000; /* Fondo negro para la sección de inicio */
+    background-color:  $black; /* Fondo negro para la sección de inicio */
 }
 
 .featured {
@@ -21,9 +32,9 @@
 }
 
 .text {
-    color: #ffffff; /* Color del texto */
+    color: $color-terciario; /* Color del texto */
     font-style: italic; /* Estilo de texto en cursiva */
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    background-color: $color-secundario-70; /* Fondo semi-transparente */
     padding: 10px; /* Espaciado interno */
     border-radius: 8px; /* Bordes redondeados */
     position: absolute; /* Permite colocar el texto sobre la imagen */
@@ -46,17 +57,17 @@
     flex: 1; /* Cada botón ocupa espacio igual */
     margin: 0 5px; /* Espacio entre los botones */
     border-radius: 0; /* Quita el borde redondeado para que se vean como bloques */
-    color: #e6e6e6; /* Color del texto */
+    color: $color-terciario; /* Color del texto */
     font-weight: bold; /* Negrita */
     transition: filter 0.2s; /* Efecto de transición al hacer hover */
 }
 
 .buttons .btn-compra {
-    background-color: rgba(71, 71, 71, 0.8); /* Fondo del botón de compra */
+    background-color: $color-primario-70; /* Fondo del botón de compra */
 }
 
 .buttons .btn-carrito {
-    background-color: rgba(88, 88, 88, 0.8); /* Fondo del botón de carrito */
+    background-color: $color-contraste-1-70; /* Fondo del botón de carrito */
 }
 
 .buttons .btn:hover {
@@ -68,7 +79,7 @@
     cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
     margin: 10px; /* Espacio entre tarjetas */
     border-radius: 8px; /* Bordes redondeados */
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    background-color: $color-secundario; /* Fondo semi-transparente */
     overflow: hidden; /* Oculta el contenido que sobresale */
 }
 
@@ -83,7 +94,7 @@
     bottom: 0; /* Alinea al fondo */
     left: 0; /* Alinea a la izquierda */
     right: 0; /* Alinea a la derecha */
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    background-color: $color-primario-70; /* Fondo semi-transparente */
     color: #ffffff; /* Color del texto */
     padding: 10px; /* Espaciado interno */
     opacity: 0; /* Oculta el contenido por defecto */
@@ -97,9 +108,9 @@
 .product-price {
     color: #ffffff; /* Color del texto */
     font-weight: bold; /* Negrita */
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    background-color: $color-secundario; /* Fondo semi-transparente */
     padding: 10px; /* Espaciado interno */
-    border-radius: 0 0 8px 8px; /* Bordes redondeados en la parte inferior */
+    border-radius: 8px 8px 8px 8px; /* Bordes redondeados en la parte inferior */
     margin: 0; /* Sin margen para alinear */
 }
 

@@ -6,6 +6,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login/login.component';
 import { SiginComponent } from './sigin/sigin.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { RestartPasswordComponent } from './restart-password/restart-password.component';
+
 
 
 export const routes: Routes = [
@@ -36,5 +39,13 @@ export const routes: Routes = [
     {
         path:'carrito',
         component:ShopCartComponent
+    },
+    {
+        path:'recuperar',
+        component:ForgetPasswordComponent
+    },
+    {
+        path:'reiniciar',
+        component:RestartPasswordComponent
     }
 ];
