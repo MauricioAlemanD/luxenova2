@@ -1,51 +1,50 @@
 <div class="container-fluid">
-    <div class="row m-0">
-        <div class="col-lg-6 col-md-6 col-sm-12 login p-0 m-0">
-            
-            <div class="container login">
+  <div class="row m-0">
+    <div class="col-lg-6 col-md-6 col-sm-12 login p-0 m-0">
+      <div class="container login">
+        <!-- Logo y título -->
+        <a class="navbar-brand font-weight-bold finger-paint-regular luxe" [routerLink]="['/']" alt="Inicio">
+          <svg width="25px" height="25px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z" fill="#000000"/>
+          </svg> LUXENOVA
+        </a>
+        <h2>¡Hey, <br> ¿Quieres comprar algo de nuevo?</h2>
+        <h4 class="cuat">Compra y vapea</h4>
 
-                <a class="navbar-brand font-weight-bold finger-paint-regular luxe" [routerLink]="['/']" alt="Inicio">
-                    <svg width="25px" height="25px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z" fill="#000000"/>
-                    </svg>   LUXENOVA</a>
-                <br>
-                <br>
-                <br>
-                <h2>¡Hey, <br> ¿Quieres comprar algo de nuevo?</h2>
-                <br>
-                <br>
-                <h4 class="cuat">Compra y vapea</h4>
-                <br>
-                <form class="login-form">
-                    <div class="form-group">
-                        <label for="email" class="">Correo / Número de teléfono</label>
-                        <input type="text" class="form-control mb-4 no-outline" name="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="">Contraseña</label>
-                        <input type="password" class="form-control mb-2 no-outline" name="password" id="password" required>
-                    </div>
-                    <div class="log-set m-2">
-                        <div class="rem">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="" for="terms">Recordarme</label>
-                        </div>
-                        <div class="for">
-                            <a [routerLink]="['/recuperar']">¿Olvidaste tu contraseña?</a>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-danger btn-block">Acceder</button>
-                </form>
-                <div class="sig">
-                    <span>¿No tienes cuenta? </span><a href="/registro">Regístrate ahora</a>
-                </div>
+        <!-- Formulario de Login -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="email">Correo / Número de teléfono</label>
+            <input type="text" class="form-control mb-4 no-outline" id="email" formControlName="email" required>
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+              Ingresa un correo válido
             </div>
+          </div>
 
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-0 img p-0 m-0">
-            <div class="image-container">
-                <img src="assets/img/products/producto-1.jpg" alt="Producto" class="img-fluid">
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control mb-2 no-outline" id="password" formControlName="password" required>
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+              La contraseña es requerida
             </div>
+          </div>
+
+          <div *ngIf="errorMessage" class="text-danger">
+            {{ errorMessage }}
+          </div>
+
+          <button type="submit" class="btn btn-danger btn-block" [disabled]="loginForm.invalid">Acceder</button>
+        </form>
+
+        <div class="sig">
+          <span>¿No tienes cuenta? </span><a href="/registro">Regístrate ahora</a>
         </div>
+      </div>
     </div>
+    <div class="col-lg-6 col-md-6 col-sm-0 img p-0 m-0">
+      <div class="image-container">
+        <img src="assets/img/products/producto-1.jpg" alt="Producto" class="img-fluid">
+      </div>
+    </div>
+  </div>
 </div>

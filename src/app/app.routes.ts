@@ -8,33 +8,34 @@ import { SiginComponent } from './sigin/sigin.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { RestartPasswordComponent } from './restart-password/restart-password.component';
+import {PruebaComponent} from './prueba/prueba.component';
 
 
 
 export const routes: Routes = [
     {
         path:'',
-        component:HomeComponent 
+        component:HomeComponent
     },
     {
         path:'tienda',
-        component:ShopComponent 
+        component:ShopComponent
     },
     {
         path:'opiniones',
-        component:OpinionsComponent 
+        component:OpinionsComponent
     },
     {
         path:'sobre_nosotros',
-        component:AboutUsComponent 
+        component:AboutUsComponent
     },
     {
         path:'ingreso',
-        component:LoginComponent 
+        component:LoginComponent
     },
     {
         path:'registro',
-        component:SiginComponent 
+        component:SiginComponent
     },
     {
         path:'carrito',
@@ -47,5 +48,9 @@ export const routes: Routes = [
     {
         path:'reiniciar',
         component:RestartPasswordComponent
+    },
+    {
+      path:'prueba',
+      component:PruebaComponent
     }
 ];
