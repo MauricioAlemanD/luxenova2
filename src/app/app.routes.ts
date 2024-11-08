@@ -9,6 +9,7 @@ import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { RestartPasswordComponent } from './restart-password/restart-password.component';
 import {PruebaComponent} from './prueba/prueba.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -52,5 +53,9 @@ export const routes: Routes = [
     {
       path:'prueba',
       component:PruebaComponent
+    },
+    {
+        path:'perfil',
+        component:PerfilComponent
     }
 ];

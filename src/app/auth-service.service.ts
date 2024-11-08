@@ -13,6 +13,7 @@ export class AuthService {
   login(token: string): void {
     if (this.isBrowser) {
       sessionStorage.setItem('token', token);  // Guarda el token en el sessionStorage
+      
     }
   }
 
@@ -31,4 +32,6 @@ export class AuthService {
   getToken(): string | null {
     return this.isBrowser ? sessionStorage.getItem('token') : null;  // Obtiene el token del sessionStorage
   }
+
+  
 }

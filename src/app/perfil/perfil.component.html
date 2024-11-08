@@ -1,0 +1,198 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Panel de Administración para {{ getUserRole() }}</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#adminNavbar"
+        aria-controls="adminNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="adminNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Modificar Inicio -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Modificar Inicio</a>
+          </li>
+          <!-- Inventario -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Inventario</a>
+          </li>
+          <!-- Opiniones -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Opiniones</a>
+          </li>
+          <!-- Información Luxenova -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Información Luxenova</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+<div class="container my-5">
+    <h2 class="mb-4">Perfil de Usuario</h2>
+  
+    <!-- Información Básica -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5>Información del Usuario</h5>
+        <p><strong>Nombre:</strong> {{ userName }}</p>
+        <p><strong>Correo:</strong> {{ userEmail }}</p>
+      </div>
+    </div>
+  
+    <!-- Sección de Seguridad -->
+    <div class="accordion mb-4" id="securityAccordion">
+      <div class="card">
+        <div class="card-header" id="securityHeading">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#security"
+              aria-expanded="true"
+              aria-controls="security"
+            >
+              Seguridad
+            </button>
+          </h5>
+        </div>
+  
+        <div id="security" class="collapse" aria-labelledby="securityHeading" data-bs-parent="#securityAccordion">
+          <div class="card-body">
+            <h6>Actualizar Información de Seguridad</h6>
+            <form>
+              <div class="mb-3">
+                <label for="updateEmail" class="form-label">Actualizar Correo</label>
+                <input type="email" class="form-control" id="updateEmail" placeholder="Nuevo correo" />
+              </div>
+              <div class="mb-3">
+                <label for="updatePassword" class="form-label">Actualizar Contraseña</label>
+                <input type="password" class="form-control" id="updatePassword" placeholder="Nueva contraseña" />
+              </div>
+              <div class="mb-3">
+                <label for="updateName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="updateName" placeholder="Nuevo nombre" />
+              </div>
+              <div class="mb-3">
+                <label for="updateLastName" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="updateLastName" placeholder="Nuevo apellido" />
+              </div>
+              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Métodos de Pago -->
+    <div class="accordion mb-4" id="paymentAccordion">
+      <div class="card">
+        <div class="card-header" id="paymentHeading">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#paymentMethods"
+              aria-expanded="false"
+              aria-controls="paymentMethods"
+            >
+              Métodos de Pago
+            </button>
+          </h5>
+        </div>
+  
+        <div id="paymentMethods" class="collapse" aria-labelledby="paymentHeading" data-bs-parent="#paymentAccordion">
+          <div class="card-body">
+            <h6>Tarjetas Guardadas</h6>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let card of paymentMethods">
+                {{ card.type }} (**** {{ card.last4 }})
+                <button class="btn btn-sm btn-secondary ms-2" (click)="editPaymentMethod(card)">Editar</button>
+                <button class="btn btn-sm btn-danger ms-2" (click)="removePaymentMethod(card)">Eliminar</button>
+              </li>
+            </ul>
+            <button class="btn btn-success mt-3" (click)="addPaymentMethod()">Añadir Método de Pago</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Direcciones -->
+    <div class="accordion mb-4" id="addressAccordion">
+      <div class="card">
+        <div class="card-header" id="addressHeading">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#addresses"
+              aria-expanded="false"
+              aria-controls="addresses"
+            >
+              Direcciones
+            </button>
+          </h5>
+        </div>
+  
+        <div id="addresses" class="collapse" aria-labelledby="addressHeading" data-bs-parent="#addressAccordion">
+          <div class="card-body">
+            <h6>Direcciones Guardadas</h6>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let address of addresses">
+                {{ address }}
+                <button class="btn btn-sm btn-danger ms-2" (click)="removeAddress(address)">Eliminar</button>
+              </li>
+            </ul>
+            <button class="btn btn-success mt-3" (click)="addAddress()">Añadir Dirección</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Compras Realizadas -->
+    <div class="accordion mb-4" id="ordersAccordion">
+      <div class="card">
+        <div class="card-header" id="ordersHeading">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#orders"
+              aria-expanded="false"
+              aria-controls="orders"
+            >
+              Compras Realizadas
+            </button>
+          </h5>
+        </div>
+  
+        <div id="orders" class="collapse" aria-labelledby="ordersHeading" data-bs-parent="#ordersAccordion">
+          <div class="card-body">
+            <h6>Historial de Compras</h6>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let order of orders">
+                Pedido #{{ order.orderId }} - {{ order.productName }}
+                <br />
+                <small>Fecha: {{ order.orderDate }}</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Carrito -->
+    <button class="btn btn-warning" [routerLink]="['/carrito']" routerLinkActive="router-link-active">Ir al carrito</button>
+  </div>
+  

@@ -37,7 +37,7 @@
 
         <!-- User Actions -->
         <li class="nav-item" *ngIf="isLoggedIn()">
-          <a class="nav-link pointer">Perfil, {{ getUserEmail() }}</a>
+          <a class="nav-link pointer" [routerLink]="['/perfil']">Perfil, {{ getUserEmail() }}</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link pointer" (click)="logout()">Cerrar Sesión</a>

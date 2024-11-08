@@ -122,7 +122,7 @@
     
 
     
-    <div class="account-suggestion text-center my-4">
+    <div class="account-suggestion text-center my-4" *ngIf="!isLoggedIn()">
         <h5>¿Ya tienes una cuenta?</h5>
         <p>Inicia sesión para disfrutar de todas nuestras funciones.</p>
         <a [routerLink]="['/ingreso']" routerLinkActive="router-link-active" class="btn btn-ligth ">Iniciar sesión</a>

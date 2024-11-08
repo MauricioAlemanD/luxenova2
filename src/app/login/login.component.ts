@@ -32,7 +32,7 @@ export class LoginComponent {
     }
 
     const loginData = this.loginForm.value;
-    this.http.post('http://127.0.0.1:5000/login', loginData)
+    this.http.post('http://54.165.103.0/login', loginData)
       .subscribe(
         (response: any) => {
           sessionStorage.setItem('user', JSON.stringify(response.user));
