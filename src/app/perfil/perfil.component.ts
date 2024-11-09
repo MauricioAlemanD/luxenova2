@@ -12,14 +12,7 @@ import { AuthService } from '../auth-service.service';
 })
 export class PerfilComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
-
-  userName = 'Mauricio Alemán';
-  userBio = 'Desarrollador web apasionado por la tecnología y el diseño.';
-  userEmail = 'mauricio@example.com';
-  userPhone = '+52 123 456 7890';
-  userLocation = 'Ciudad de México, México';
-  userSince = 'Enero de 2023';
-
+  
   paymentMethods = [
     { type: 'Visa', last4: '1234' },
     { type: 'MasterCard', last4: '5678' }
@@ -72,7 +65,44 @@ export class PerfilComponent implements OnInit {
     return role ? role : '';
   }
 
-  getUserData(){
-    
+  getUserNameData(){
+    const user = sessionStorage.getItem('user');
+    return user ? JSON.parse(user).first_name : '';
   }
+  getUserLastNameData(){
+    const user = sessionStorage.getItem('user');
+    return user ? JSON.parse(user).last_name : '';
+  }
+
+  getUserEmailData(){
+    const user = sessionStorage.getItem('user');
+    return user ? JSON.parse(user).email : '';
+  }
+
+  isLoggedIn(): boolean {
+    let pass: boolean = false;  // Se declara la variable pass
+    let role = sessionStorage.getItem('role');
+    
+    if (role === 'owner' || role === 'admin') {
+      pass = true;  // Si el rol es 'owner' o 'admin', pass será true
+    } else {
+      pass = false;  // Si no es ninguno de esos, pass será false
+    }
+  
+    return pass;  // Se retorna el valor de pass
+  }
+
+  isOwnerIn(): boolean {
+    let pass: boolean = false;  // Se declara la variable pass
+    let role = sessionStorage.getItem('role');
+    
+    if (role === 'owner') {
+      pass = true;  // Si el rol es 'owner' o 'admin', pass será true
+    } else {
+      pass = false;  // Si no es ninguno de esos, pass será false
+    }
+  
+    return pass;  // Se retorna el valor de pass
+  }
+  
 }

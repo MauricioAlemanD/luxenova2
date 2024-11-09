@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +15,7 @@ import { AuthService } from '../auth-service.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: string = '';
 
@@ -26,13 +26,19 @@ export class LoginComponent {
     });
   }
 
+  ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/']);  // Redirige a /ingreso si no está autenticado
+    }
+  }
+
   onSubmit(): void {
     if (this.loginForm.invalid) {
       return;
     }
 
     const loginData = this.loginForm.value;
-    this.http.post('http://54.165.103.0/login', loginData)
+    this.http.post('http://127.0.0.1:5000/login', loginData)
       .subscribe(
         (response: any) => {
           sessionStorage.setItem('user', JSON.stringify(response.user));

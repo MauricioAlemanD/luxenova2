@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="isLoggedIn()">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Panel de Administración para {{ getUserRole() }}</a>
       <button
@@ -16,7 +16,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <!-- Modificar Inicio -->
           <li class="nav-item">
-            <a class="nav-link" routerLink="">Modificar Inicio</a>
+            <a class="nav-link" [routerLink]="['/home/admin']" routerLinkActive="router-link-active">Modificar Inicio</a>
           </li>
           <!-- Inventario -->
           <li class="nav-item">
@@ -30,6 +30,10 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="">Información Luxenova</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="" *ngIf="isOwnerIn()">Usuarios</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -42,8 +46,8 @@
     <div class="card mb-4">
       <div class="card-body">
         <h5>Información del Usuario</h5>
-        <p><strong>Nombre:</strong> {{ userName }}</p>
-        <p><strong>Correo:</strong> {{ userEmail }}</p>
+        <p><strong>Nombre:</strong> {{ getUserNameData()}} {{getUserLastNameData()}}</p>
+        <p><strong>Correo:</strong> {{ getUserEmailData()}}</p>
       </div>
     </div>
   

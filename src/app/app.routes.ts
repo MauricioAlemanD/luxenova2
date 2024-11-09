@@ -10,6 +10,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { RestartPasswordComponent } from './restart-password/restart-password.component';
 import {PruebaComponent} from './prueba/prueba.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 
 
 
@@ -57,5 +58,8 @@ export const routes: Routes = [
     {
         path:'perfil',
         component:PerfilComponent
+    },{
+        path:'home/admin',
+        component:HomeAdminComponent
     }
 ];
