@@ -1,0 +1,92 @@
+<div class="container mt-4">
+    <h2>Inventario de Productos</h2>
+    
+    <!-- Botón para abrir el modal de nuevo producto -->
+    <button class="btn btn-dark mb-3" (click)="openAddProductModal()">Añadir Producto</button>
+  
+    <!-- Tabla de productos -->
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Descripción</th>
+          <th>Fabricante</th>
+          <th>Fecha de Creación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos">
+          <td>{{ producto.id_producto }}</td>
+          <td>
+            <input [(ngModel)]="producto.nombre" class="form-control" type="text" />
+          </td>
+          <td>
+            <input [(ngModel)]="producto.precio" class="form-control" type="number" step="0.01" />
+          </td>
+          <td>
+            <input [(ngModel)]="producto.cantidad" class="form-control" type="number" />
+          </td>
+          <td>
+            <textarea [(ngModel)]="producto.descripcion" class="form-control"></textarea>
+          </td>
+          <td>
+            <input [(ngModel)]="producto.fabricante" class="form-control" type="text" />
+          </td>
+          <td>{{ producto.fecha_creacion | date: 'short' }}</td>
+          <td>
+            <button class="btn btn-success btn-sm mb-3" (click)="saveProduct(producto)">Guardar</button>
+            <button class="btn btn-danger btn-sm mb-3" (click)="deleteProduct(producto.id_producto)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Modal para añadir un nuevo producto -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addProductModalLabel">Añadir Nuevo Producto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="newProduct.nombre" name="nombre">
+              </div>
+              <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" [(ngModel)]="newProduct.precio" name="precio" step="0.01">
+              </div>
+              <div class="mb-3">
+                <label for="cantidad" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="cantidad" [(ngModel)]="newProduct.cantidad" name="cantidad">
+              </div>
+              <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" [(ngModel)]="newProduct.descripcion" name="descripcion"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="fabricante" class="form-label">Fabricante</label>
+                <input type="text" class="form-control" id="fabricante" [(ngModel)]="newProduct.fabricante" name="fabricante">
+              </div>
+              <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen del Producto</label>
+                <input type="file" class="form-control" id="imagen" (change)="onImageUpload($event)">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary mb-3" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary mb-3" (click)="addProduct()">Añadir Producto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

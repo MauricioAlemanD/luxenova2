@@ -263,7 +263,40 @@ $color-contraste-1-70: #3a6d8cda;
 
 .carousel .item img {
     width: 100%;
-    height: auto;
+    height: 50%;
     object-fit: cover;
     /* Otros estilos específicos para la imagen */
+}
+
+.card-p {
+    border-radius: 8px;
+    overflow: hidden;
+}
+  
+
+.carousel-item-p img {
+    height: 10%;
+    object-fit: cover;
+}
+
+.carousel-item-p img {
+    max-height: 200px; /* Ajusta este valor según prefieras */
+    object-fit: contain; /* O utiliza 'cover' si prefieres que la imagen llene más espacio */
+    width: 100%;
+} 
+
+.card-p {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.carousel-item-p {
+    max-height: 400px; /* Ajusta este valor según prefieras */
+    object-fit: contain; /* Usa 'cover' para llenar más espacio sin distorsionar */
+    width: 100%;
+}
+
+.bg-card-img{
+    background-color: $color-secundario-70;
+    border-radius: 8px;
 }

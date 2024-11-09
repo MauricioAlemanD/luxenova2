@@ -11,6 +11,8 @@ import { RestartPasswordComponent } from './restart-password/restart-password.co
 import {PruebaComponent} from './prueba/prueba.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
+import { ProductoComponent } from './producto/producto.component';
+import { InventoryComponent } from './admin/inventory/inventory.component';
 
 
 
@@ -61,5 +63,11 @@ export const routes: Routes = [
     },{
         path:'home/admin',
         component:HomeAdminComponent
+    },{
+        path:"producto",
+        component:ProductoComponent
+    },{
+        path:'inventario/admin',
+        component:InventoryComponent
     }
 ];
