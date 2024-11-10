@@ -13,6 +13,11 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { ProductoComponent } from './producto/producto.component';
 import { InventoryComponent } from './admin/inventory/inventory.component';
+import { OpinionsadminComponent } from './admin/opinionsadmin/opinionsadmin.component';
+import { InfoAdminComponent } from './admin/info-admin/info-admin.component';
+import { UsersComponent } from './owner/users/users.component';
+import { PedidosComponent } from './admin/pedidos/pedidos.component';
+import { ComprarComponent } from '../comprar/comprar.component';
 
 
 
@@ -69,5 +74,20 @@ export const routes: Routes = [
     },{
         path:'inventario/admin',
         component:InventoryComponent
+    },{
+        path:'opiniones/admin',
+        component: OpinionsadminComponent
+    },{
+        path:'luxenova/admin',
+        component: InfoAdminComponent
+    },{
+        path:'users/owner',
+        component: UsersComponent
+    },{
+        path: "pedidos/admin",
+        component:PedidosComponent
+    },{
+        path: "carrito/compra",
+        component: ComprarComponent
     }
 ];

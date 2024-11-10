@@ -1,0 +1,49 @@
+<div class="container my-5">
+    <h2>Resumen de la compra</h2>
+  
+    <!-- Resumen de compra -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <h4>Total de artículos: {{ totalQuantity }} </h4>
+        <h4>Valor total: ${{ totalPrice | number:'1.2-2' }}</h4>
+      </div>
+    </div>
+  
+    <!-- Métodos de pago -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <h5>Método de pago</h5>
+        <div *ngFor="let paymentMethod of paymentMethods">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="{{ paymentMethod.id }}" [(ngModel)]="selectedPaymentMethod" [value]="paymentMethod.id">
+            <label class="form-check-label" for="{{ paymentMethod.id }}">
+              {{ paymentMethod.name }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Dirección de envío -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <h5>Dirección de envío</h5>
+        <div *ngFor="let address of shippingAddresses">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="shippingAddress" id="{{ address.id }}" [(ngModel)]="selectedAddress" [value]="address.id">
+            <label class="form-check-label" for="{{ address.id }}">
+              {{ address.street }}, {{ address.city }}, {{ address.state }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Botón para realizar la compra -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <button class="btn btn-primary w-100" (click)="completePurchase()">Realizar compra</button>
+      </div>
+    </div>
+  </div>
+  

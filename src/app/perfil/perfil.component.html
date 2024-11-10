@@ -20,19 +20,23 @@
           </li>
           <!-- Inventario -->
           <li class="nav-item">
-            <a class="nav-link" routerLink="">Inventario</a>
+            <a class="nav-link" [routerLink]="['/inventario/admin']" routerLinkActive="router-link-active">Inventario</a>
           </li>
           <!-- Opiniones -->
           <li class="nav-item">
-            <a class="nav-link" routerLink="">Opiniones</a>
+            <a class="nav-link" [routerLink]="['/opiniones/admin']" routerLinkActive="router-link-active">Opiniones</a>
           </li>
           <!-- Información Luxenova -->
           <li class="nav-item">
-            <a class="nav-link" routerLink="">Información Luxenova</a>
+            <a class="nav-link" [routerLink]="['/luxenova/admin']" routerLinkActive="router-link-active">Información Luxenova</a>
+          </li>
+          <!-- Pedidos -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/pedidos/admin']" routerLinkActive="router-link-active">Pedidos</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" routerLink="" *ngIf="isOwnerIn()">Usuarios</a>
+            <a class="nav-link" routerLink="/users/owner" *ngIf="isOwnerIn()">Usuarios</a>
           </li>
         </ul>
       </div>

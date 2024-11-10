@@ -1,5 +1,55 @@
 <div class="component">
-    <div class="carrito"></div>
+    <div class="carrito">
+
+        <div class="container my-5">
+            <h2>Carrito de Compras</h2>
+          
+            <!-- Sección del carrito -->
+            <div *ngIf="cart.length > 0">
+              <div class="list-group">
+                <!-- Lista de productos en el carrito -->
+                <div *ngFor="let product of cart; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+                  <div class="d-flex">
+                    <!-- Imagen del producto -->
+                    <img [src]="product.imageUrl" alt="{{ product.name }}" class="img-thumbnail" width="50">
+                    
+                    <!-- Nombre y precio del producto -->
+                    <div class="ms-3">
+                      <h5>{{ product.name }}</h5>
+                      <p class="mb-0">Precio: ${{ product.price | number:'1.2-2' }}</p>
+                    </div>
+                  </div>
+          
+                  <!-- Controles de cantidad -->
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary" (click)="decreaseQuantity(i)">-</button>
+                    <span class="mx-3">{{ product.quantity }}</span>
+                    <button class="btn btn-outline-secondary" (click)="increaseQuantity(i)">+</button>
+                    
+                    <!-- Botón para eliminar producto del carrito -->
+                    <button class="btn btn-danger ms-3" (click)="removeProduct(i)">Eliminar</button>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Total de productos y precio -->
+              <div class="mt-4">
+                <h4>Total de productos: {{ totalQuantity }}</h4>
+                <h4>Precio total: ${{ totalPrice | number:'1.2-2' }}</h4>
+          
+                <!-- Botón para continuar a la compra -->
+                <button class="btn btn-primary mt-3" (click)="goToCheckout()">Continuar a la compra</button>
+              </div>
+            </div>
+          
+            <!-- Mensaje si el carrito está vacío -->
+            <div *ngIf="cart.length === 0">
+              <p class="text-muted">Tu carrito está vacío.</p>
+            </div>
+          </div>
+          
+
+    </div>
     <div class="resumen"></div>
     <div class="recomendaciones">
         <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">

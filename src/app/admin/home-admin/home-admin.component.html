@@ -1,1 +1,73 @@
-<p>home-admin works!</p>
+<div class="container mt-5">
+    <h2>Configuración del Menú de Inicio</h2>
+  
+    <!-- Sección: Banner Anuncio -->
+    <div class="my-4">
+      <h4>Banner Anuncio</h4>
+      <div class="mb-3">
+        <label for="bannerTitle" class="form-label">Título Promocional</label>
+        <input type="text" class="form-control" id="bannerTitle" placeholder="Ingrese el título promocional">
+      </div>
+      <div class="mb-3">
+        <label for="bannerSubtitle" class="form-label">Subtítulo Promocional</label>
+        <input type="text" class="form-control" id="bannerSubtitle" placeholder="Ingrese el subtítulo promocional">
+      </div>
+      <div class="mb-3">
+        <label for="bannerImage" class="form-label">Selección de Imagen para Banner</label>
+        <select class="form-select" id="bannerImage">
+          <option value="image1.jpg">Imagen 1</option>
+          <option value="image2.jpg">Imagen 2</option>
+          <option value="image3.jpg">Imagen 3</option>
+          <option value="upload">Subir una nueva imagen</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="bannerProduct" class="form-label">Selección de Producto Existente</label>
+        <select class="form-select" id="bannerProduct">
+          <option value="product1">Producto 1</option>
+          <option value="product2">Producto 2</option>
+          <option value="product3">Producto 3</option>
+        </select>
+      </div>
+    </div>
+  
+    <!-- Sección: Carrusel de Productos -->
+    <div class="my-4">
+      <h4>Carrusel de Productos</h4>
+      <div *ngFor="let i of [1,2,3,4,5,6,7,8]; let idx = index" class="mb-3">
+        <label for="carouselProduct{{idx}}" class="form-label">Producto {{ idx + 1 }}</label>
+        <select class="form-select" id="carouselProduct{{idx}}">
+          <option value="product1">Producto 1</option>
+          <option value="product2">Producto 2</option>
+          <option value="product3">Producto 3</option>
+        </select>
+      </div>
+    </div>
+  
+    <!-- Sección: Productos Bestseller -->
+    <div class="my-4">
+      <h4>Productos Bestseller</h4>
+      <div class="mb-3">
+        <label for="bestsellerProduct1" class="form-label">Producto Bestseller 1</label>
+        <select class="form-select" id="bestsellerProduct1">
+          <option value="product1">Producto 1</option>
+          <option value="product2">Producto 2</option>
+          <option value="product3">Producto 3</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="bestsellerProduct2" class="form-label">Producto Bestseller 2</label>
+        <select class="form-select" id="bestsellerProduct2">
+          <option value="product1">Producto 1</option>
+          <option value="product2">Producto 2</option>
+          <option value="product3">Producto 3</option>
+        </select>
+      </div>
+    </div>
+  
+    <!-- Botón para guardar cambios -->
+    <div class="text-end">
+      <button class="btn btn-primary mb-5" (click)="guardarCambios()">Guardar Cambios</button>
+    </div>
+  </div>
+  

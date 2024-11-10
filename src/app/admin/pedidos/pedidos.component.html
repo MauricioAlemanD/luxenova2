@@ -1,0 +1,38 @@
+<div class="container my-5">
+    <h2>Pedidos</h2>
+  
+    <!-- Barra de búsqueda para ingresar ID de un pedido -->
+    <div class="mb-4">
+      <label for="orderId" class="form-label">Buscar por ID de Pedido</label>
+      <input type="text" id="orderId" class="form-control" placeholder="Ingrese el ID del pedido" [(ngModel)]="searchId" (input)="searchOrder()">
+    </div>
+  
+    <!-- Sección de Pedidos Realizados -->
+    <div class="mb-4">
+      <h3>Pedidos Realizados</h3>
+      <div *ngFor="let order of completedOrders" class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Pedido ID: {{ order.id }}</h5>
+          <p class="card-text">Cliente: {{ order.customer }}</p>
+          <p class="card-text">Fecha: {{ order.date }}</p>
+          <p class="card-text">Estado: <span class="badge bg-success">Realizado</span></p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Sección de Pedidos Pendientes -->
+    <div>
+      <h3>Pedidos Pendientes</h3>
+      <div *ngFor="let order of pendingOrders" class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Pedido ID: {{ order.id }}</h5>
+          <p class="card-text">Cliente: {{ order.customer }}</p>
+          <p class="card-text">Fecha: {{ order.date }}</p>
+          <p class="card-text">Estado: <span class="badge bg-warning">Pendiente</span></p>
+          <!-- Botón para marcar como "Pedido Enviado" -->
+          <button class="btn btn-success" (click)="markAsShipped(order.id)">Pedido Enviado</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
