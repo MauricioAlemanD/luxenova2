@@ -1,0 +1,29 @@
+.profile-card {
+    max-width: 600px;
+    border-radius: 12px;
+  
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border: 3px solid #007bff;
+    }
+  
+    .card-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+  
+    .card-body p {
+      margin: 0.25rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+  
+    i {
+      color: #007bff;
+    }
+  }
+  

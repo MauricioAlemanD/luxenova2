@@ -65,3 +65,7 @@ $color-primario: #e62c33;
 .no-outline:focus-within {
     border: 1px solid $color-primario; /* Asegúrate de que se aplique en el foco dentro */
 }
+
+.pointer{
+    cursor: pointer;
+}

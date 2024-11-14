@@ -1,0 +1,17 @@
+  <div class="reseñas-relevantes container-fluid">
+    <h4>Reseñas Relevantes</h4>
+    <div *ngFor="let review of reviews">
+      <app-user-opinion
+        [productName]="review.productName"
+        [username]="review.username"
+        [rating]="review.rating"
+        [imageUrl]="review.imageUrl"
+        [review]="review.review"
+        [date]="review.date">        
+      </app-user-opinion>
+
+      <button class="btn btn-danger  mb-5">Eliminar Reseña</button>
+    </div>
+    
+  </div>
+  

@@ -8,33 +8,43 @@ import { SiginComponent } from './sigin/sigin.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { RestartPasswordComponent } from './restart-password/restart-password.component';
+import {PruebaComponent} from './prueba/prueba.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
+import { ProductoComponent } from './producto/producto.component';
+import { InventoryComponent } from './admin/inventory/inventory.component';
+import { OpinionsadminComponent } from './admin/opinionsadmin/opinionsadmin.component';
+import { InfoAdminComponent } from './admin/info-admin/info-admin.component';
+import { UsersComponent } from './owner/users/users.component';
+import { PedidosComponent } from './admin/pedidos/pedidos.component';
+import { ComprarComponent } from '../comprar/comprar.component';
 
 
 
 export const routes: Routes = [
     {
         path:'',
-        component:HomeComponent 
+        component:HomeComponent
     },
     {
         path:'tienda',
-        component:ShopComponent 
+        component:ShopComponent
     },
     {
         path:'opiniones',
-        component:OpinionsComponent 
+        component:OpinionsComponent
     },
     {
         path:'sobre_nosotros',
-        component:AboutUsComponent 
+        component:AboutUsComponent
     },
     {
         path:'ingreso',
-        component:LoginComponent 
+        component:LoginComponent
     },
     {
         path:'registro',
-        component:SiginComponent 
+        component:SiginComponent
     },
     {
         path:'carrito',
@@ -47,5 +57,37 @@ export const routes: Routes = [
     {
         path:'reiniciar',
         component:RestartPasswordComponent
+    },
+    {
+      path:'prueba',
+      component:PruebaComponent
+    },
+    {
+        path:'perfil',
+        component:PerfilComponent
+    },{
+        path:'home/admin',
+        component:HomeAdminComponent
+    },{
+        path:"producto",
+        component:ProductoComponent
+    },{
+        path:'inventario/admin',
+        component:InventoryComponent
+    },{
+        path:'opiniones/admin',
+        component: OpinionsadminComponent
+    },{
+        path:'luxenova/admin',
+        component: InfoAdminComponent
+    },{
+        path:'users/owner',
+        component: UsersComponent
+    },{
+        path: "pedidos/admin",
+        component:PedidosComponent
+    },{
+        path: "carrito/compra",
+        component: ComprarComponent
     }
 ];
