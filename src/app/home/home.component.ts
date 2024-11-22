@@ -29,9 +29,7 @@ export class HomeComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
-  getFeaturedProducts(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/featured`);
-  }
+
 
 
 
