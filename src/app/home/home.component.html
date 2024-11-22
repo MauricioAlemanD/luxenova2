@@ -34,7 +34,9 @@
               <div class="col-md-3 text-center" *ngFor="let product of section2Data.slice(i * 4, (i + 1) * 4)">
                 <div class="product-card">
                   <!-- Imagen del producto -->
+                  <!-- <img [src]="product.productIMG" class="img-fluid" alt="{{ product.productName }}"> -->
                   <img [src]="product.productIMG" class="img-fluid" alt="{{ product.productName }}">
+
                   <div class="product-info">
                     <h5 class="product-name">{{ product.productName }}</h5>
                     <p class="product-description">{{ product.productDescription }}</p>

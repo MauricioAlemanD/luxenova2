@@ -4,6 +4,8 @@ import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth-service.service';
 import { HttpClientModule } from '@angular/common/http';  // Asegúrate de incluir HttpClientModule
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-home',
@@ -13,59 +15,59 @@ import { HttpClientModule } from '@angular/common/http';  // Asegúrate de inclu
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  // Variables para almacenar los datos del JSON
   section1Data: any[] = [];
   section2Data: any[] = [];
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
-    this.getSection1Data();  // Llamamos a la función que hace la solicitud HTTP para section-1
-    this.getSection2Data();  // Llamamos a la función que hace la solicitud HTTP para section-2
+    this.getSection1Data();  
+    this.getSection2Data();  
   }
 
-  // Verifica si el usuario está logueado
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
 
-  // Función que hace la solicitud HTTP para obtener los datos de la sección 1
+  getFeaturedProducts(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/featured`);
+  }
+
+
+
   getSection1Data() {
-    const url = 'http://127.0.0.1:5000/home-section?section=section-1';
-    
-    // Realiza la solicitud GET
+    const url = 'http://localhost:5000/home-section?section=section-1';
+
     this.http.get(url).subscribe(
       (data: any) => {
-        console.log('Section 1:', data);  // Imprime la respuesta JSON en la consola
-
-        // Asigna los valores a la variable section1Data
-        if (data && Array.isArray(data)) {
-          this.section1Data = data;
+        if (data && data['section-1']) {
+          this.section1Data = data['section-1'];
+        } else {
+          console.error('No data found for section 1');
         }
       },
       error => {
-        console.error('Error al obtener los datos de section-1:', error);  // En caso de error
+        console.error('Error al obtener los datos de section-1:', error);
       }
     );
   }
 
-  // Función que hace la solicitud HTTP para obtener los datos de la sección 2
+
+
+  
   getSection2Data() {
-    const url = 'http://127.0.0.1:5000/home-section?section=section-2';
-    
-    // Realiza la solicitud GET
+    const url = 'http://localhost:5000/home-section?section=section-2';
+
     this.http.get(url).subscribe(
       (data: any) => {
-        console.log('Section 2:', data);  // Imprime la respuesta JSON en la consola
-
-        // Asigna los valores a la variable section2Data
-        if (data && Array.isArray(data)) {
-          this.section2Data = data;
+        if (data && data['section-2']) {
+          this.section2Data = data['section-2'];
+        } else {
+          console.error('No data found for section 2');
         }
       },
       error => {
-        console.error('Error al obtener los datos de section-2:', error);  // En caso de error
+        console.error('Error al obtener los datos de section-2:', error);
       }
     );
   }
