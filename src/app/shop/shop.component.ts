@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 interface Product {
+  id_producto: number;  // Agrega esta propiedad
   imageUrl: string;
   productName: string;
   productPrice: number;
@@ -12,7 +13,6 @@ interface Product {
   stockQuantity: number;
   category: string;
 }
-
 @Component({
   selector: 'app-shop',
   standalone: true,
@@ -33,6 +33,11 @@ export class ShopComponent {
     this.getProducts();  // Llamar a la API para obtener los productos
   }
 
+  getUserID(): number {
+    const user = sessionStorage.getItem('user');
+    return user ? JSON.parse(user).id : '';
+  }
+
   // Función para obtener los productos desde la API
   getProducts(): void {
     this.http.get<any>('http://localhost:5000/productos')
@@ -40,6 +45,7 @@ export class ShopComponent {
         console.log('Datos recibidos:', data);  // Verifica los datos recibidos
   
         this.products = data.map((producto: any) => ({
+          id_producto: producto.id_producto,  // Agregar id_producto
           imageUrl: `assets/img/products/${producto.imagen || 'producto-1.jpg'}`,  // Ruta de la imagen
           productName: producto.nombre,  // Nombre del producto
           productPrice: parseFloat(producto.precio),  // Precio del producto
@@ -55,9 +61,7 @@ export class ShopComponent {
         this.applyFilters();  // Aplica los filtros si se necesitan
       });
   }
-  
-  
-  
+
   // Función para aplicar los filtros
   applyFilters() {
     this.filteredProducts = this.products.filter(product => {
@@ -67,4 +71,29 @@ export class ShopComponent {
       return matchesPrice && matchesStock && matchesCategory;
     });
   }
+
+// Función para agregar al carrito
+addToCart(productId: number) {
+  // Obtener el user_id del sessionStorage
+  const userId = this.getUserID();
+
+  // Verificar si el user_id está presente
+  if (!userId) {
+    alert('Por favor, inicia sesión para agregar productos al carrito.');
+    return;
+  }
+
+  // Llamamos a la API para agregar el producto al carrito
+  this.http.post<any>('http://localhost:5000/carrito', { 
+    user_id: userId,  // Pasamos el user_id aquí
+    producto_id: productId  // Pasamos el id del producto
+  }, { withCredentials: true })  // Asegúrate de incluir withCredentials
+  .subscribe(response => {
+    console.log('Producto agregado al carrito:', response);
+    alert('Producto agregado al carrito!');
+  }, error => {
+    console.error('Error al agregar al carrito:', error);
+  });
+}
+
 }
