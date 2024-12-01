@@ -74,11 +74,11 @@
         <div class="row">
             <div class="col-md-6 text-center">
                 <div class="product-card-f position-relative">
-                    <img src="assets/img/products/destacado/producto-destacado-1.jpg" class="img-fluid" alt="Producto Destacado 1">
+                    <img [src]="section2Data[0]?.productIMG" class="img-fluid" alt="Producto Destacado 1">
                     <div class="overlay">
-                        <h5 class="product-name">Nombre del Producto 1</h5>
-                        <p class="product-description">Descripción breve del producto 1.</p>
-                        <h5 class="product-price">Precio: $49.99</h5>
+                        <h5 class="product-name">{{ section2Data[0]?.productName }}</h5>
+                        <p class="product-description">{{ section2Data[0]?.productDescription }}</p>
+                        <h5 class="product-price">Precio: {{ section2Data[0]?.productPrice }}</h5>
                         <div class="buttons">
                             <button class="btn btn-dark">Comprar</button>
                             <button class="btn btn-dark">Añadir al carrito</button>
@@ -88,11 +88,11 @@
             </div>
             <div class="col-md-6 text-center">
                 <div class="product-card-f position-relative">
-                    <img src="assets/img/products/destacado/producto-destacado-2.jpg" class="img-fluid" alt="Producto Destacado 2">
+                    <img [src]="section2Data[1]?.productIMG" class="img-fluid" alt="Producto Destacado 2">
                     <div class="overlay">
-                        <h5 class="product-name">Nombre del Producto 2</h5>
-                        <p class="product-description">Descripción breve del producto 2.</p>
-                        <h5 class="product-price">Precio: $59.99</h5>
+                        <h5 class="product-name">{{ section2Data[1]?.productName }}</h5>
+                        <p class="product-description">{{ section2Data[1]?.productDescription }}</p>
+                        <h5 class="product-price">Precio: {{ section2Data[1]?.productPrice }}</h5>
                         <div class="buttons">
                             <button class="btn btn-dark">Comprar</button>
                             <button class="btn btn-dark">Añadir al carrito</button>
@@ -102,6 +102,7 @@
             </div>
         </div>
     </div>
+    
 
     <div class="categories-banner my-4">
         <h2 class="text-center">Categorías de Vapeadores</h2>
