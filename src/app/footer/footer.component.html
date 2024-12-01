@@ -10,10 +10,10 @@
             <div class="col-md-4">
                 <h5>Enlaces Rápidos</h5>
                 <ul class="list-unstyled">
-                    <li><a href="index.html" class="text-light">Inicio</a></li>
-                    <li><a href="productos.html" class="text-light">Productos</a></li>
-                    <li><a href="categorias.html" class="text-light">Categorías</a></li>
-                    <li><a href="contacto.html" class="text-light">Contacto</a></li>
+                    <li><a class="text-light" [routerLink]="['/']" routerLinkActive="router-link-active">inicio</a></li>
+                    <li><a class="text-light" [routerLink]="['/tienda']" routerLinkActive="router-link-active">productos</a></li>
+                    <!-- <li><a href="categorias.html" class="text-light">Categorías</a></li> -->
+                    <li><a class="text-light" [routerLink]="['/sobre_nosotros']" routerLinkActive="router-link-active">contacto</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
