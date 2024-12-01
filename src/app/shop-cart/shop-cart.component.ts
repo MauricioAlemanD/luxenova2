@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 export class ShopCartComponent implements OnInit {
 
   cart: any[] = [];
+  section2Data: any[] = [];
   apiUrl: string = 'http://localhost:5000';  // URL de tu API
 
   constructor(private router: Router, private http: HttpClient) {}
@@ -25,6 +26,7 @@ export class ShopCartComponent implements OnInit {
   ngOnInit(): void {
     // Llamar al método para obtener el carrito cuando se inicializa el componente
     this.getCart();
+    this.getSection2Data();  
   }
 
   getUserId(): number | null {
@@ -114,7 +116,22 @@ export class ShopCartComponent implements OnInit {
   }
     
   
-  
+  getSection2Data() {
+    const url = 'http://localhost:5000/home-section?section=section-2';
+
+    this.http.get(url).subscribe(
+      (data: any) => {
+        if (data && data['section-2']) {
+          this.section2Data = data['section-2'];
+        } else {
+          console.error('No data found for section 2');
+        }
+      },
+      error => {
+        console.error('Error al obtener los datos de section-2:', error);
+      }
+    );
+  }  
   
 
 

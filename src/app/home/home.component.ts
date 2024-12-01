@@ -6,7 +6,6 @@ import { AuthService } from '../auth-service.service';
 import { HttpClientModule } from '@angular/common/http';  // Asegúrate de incluir HttpClientModule
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -17,21 +16,19 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
   section1Data: any[] = [];
   section2Data: any[] = [];
+  categorias: string[] = [];  // Nueva variable para las categorías
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
     this.getSection1Data();  
     this.getSection2Data();  
+    this.getCategorias();  // Llamamos a la función que obtiene las categorías
   }
 
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
-
-
-
-
 
   getSection1Data() {
     const url = 'http://localhost:5000/home-section?section=section-1';
@@ -50,9 +47,6 @@ export class HomeComponent implements OnInit {
     );
   }
 
-
-
-  
   getSection2Data() {
     const url = 'http://localhost:5000/home-section?section=section-2';
 
@@ -66,6 +60,19 @@ export class HomeComponent implements OnInit {
       },
       error => {
         console.error('Error al obtener los datos de section-2:', error);
+      }
+    );
+  }
+
+  getCategorias() {
+    // Petición a Flask para obtener las categorías
+    const url = 'http://localhost:5000/categorias';  // Asegúrate de que la URL sea correcta
+    this.http.get<string[]>(url).subscribe(
+      (data) => {
+        this.categorias = data;  // Asignamos las categorías obtenidas a la variable
+      },
+      (error) => {
+        console.error('Error al obtener las categorías:', error);
       }
     );
   }

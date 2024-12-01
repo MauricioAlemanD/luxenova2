@@ -30,12 +30,21 @@ export class ShopComponent {
   selectedCategory: string = '';
 
   constructor(private http: HttpClient) {
-    this.getProducts();  // Llamar a la API para obtener los productos
+    this.getProducts();
+    this.getCategories();
   }
 
   getUserID(): number {
     const user = sessionStorage.getItem('user');
     return user ? JSON.parse(user).id : '';
+  }
+
+  getCategories(): void {
+    this.http.get<string[]>('http://localhost:5000/categorias')
+      .subscribe((data: string[]) => {
+        console.log('Categorías recibidas:', data);  // Verifica los datos recibidos
+        this.categories = data;  // Asignamos las categorías a la propiedad 'categories'
+      });
   }
 
   // Función para obtener los productos desde la API

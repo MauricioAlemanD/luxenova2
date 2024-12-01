@@ -107,32 +107,22 @@
     <div class="categories-banner my-4">
         <h2 class="text-center">Categorías de Vapeadores</h2>
         <div class="row">
-            <div class="col-md-4 text-center">
-                <div class="category-card">
-                    <h5 class="category-name">Vapeadores Portátiles</h5>
-                    <p class="category-description">Descubre nuestra variedad de vapeadores compactos y fáciles de llevar.</p>
-                    <a href="categoria-portatiles.html" class="btn btn-dark no-radius">Ver Productos</a>
-                </div>
+          <!-- Usamos *ngFor para recorrer las categorías -->
+          <div *ngFor="let categoria of categorias" class="col-md-4 text-center">
+            <div class="category-card">
+              <h5 class="category-name">{{ categoria }}</h5>
+              <!-- <img src="assets/img/categorias/{{categoria}}.jpg" class="" alt="{{categoria}}.jpg"> -->
+              <!-- Aquí usamos la categoría para construir la descripción personalizada -->
+              <p class="category-description">Nuestra categoria de {{ categoria }} esta esperando que la pruebes.</p>
+              <!-- <a [routerLink]="'/categoria/' + categoria" class="btn btn-dark no-radius">Ver Productos</a> -->
             </div>
-            <div class="col-md-4 text-center">
-                <div class="category-card">
-                    <h5 class="category-name">Vapeadores de Mesa</h5>
-                    <p class="category-description">Conoce nuestros vapeadores de mesa para una experiencia más intensa.</p>
-                    <a href="categoria-mesa.html" class="btn btn-dark no-radius">Ver Productos</a>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="category-card">                    
-                    <h5 class="category-name">Vapeadores Desechables</h5>
-                    <p class="category-description">Prueba nuestros vapeadores desechables, ideales para probar nuevos sabores.</p>
-                    <a href="categoria-desechables.html" class="btn btn-dark no-radius">Ver Productos</a>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
+      
 
     <div class="brands-grid my-4">
-        <h2 class="text-center">Marcas de Vapeadores</h2>
+        <!-- <h2 class="text-center">Marcas de Vapeadores</h2> -->
         <div class="row">
             <div class="col-md-2 col-4 text-center">
                 <img src="assets/img/brands/vape.png" class="img-fluid" alt="Marca 1">

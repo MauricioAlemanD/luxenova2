@@ -54,103 +54,36 @@
     <div class="recomendaciones">
         <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col text-center">
-                            <div class="product-card">
-                                <img src="assets/img/products/producto-1.jpg" class="img-fluid" alt="Producto 1">
-                                <div class="product-info">
-                                    <h5 class="product-name">Producto 1</h5>
-                                    <p class="product-description">Descripción breve del producto 1.</p>
-                                </div>
-                                <h5 class="product-price">Precio: $19.99</h5>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-                            <div class="product-card">
-                                <img src="assets/img/products/producto-2.jpg" class="img-fluid" alt="Producto 2">
-                                <div class="product-info">
-                                    <h5 class="product-name">Producto 2</h5>
-                                    <p class="product-description">Descripción breve del producto 2.</p>
-                                </div>
-                                <h5 class="product-price">Precio: $24.99</h5>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-                            <div class="product-card">
-                                <img src="assets/img/products/producto-3.jpg" class="img-fluid" alt="Producto 3">
-                                <div class="product-info">
-                                    <h5 class="product-name">Producto 3</h5>
-                                    <p class="product-description">Descripción breve del producto 3.</p>
-                                </div>
-                                <h5 class="product-price">Precio: $29.99</h5>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-                            <div class="product-card">
-                                <img src="assets/img/products/producto-4.jpg" class="img-fluid" alt="Producto 4">
-                                <div class="product-info">
-                                    <h5 class="product-name">Producto 4</h5>
-                                    <p class="product-description">Descripción breve del producto 4.</p>
-                                </div>
-                                <h5 class="product-price">Precio: $34.99</h5>
-                            </div>
-                        </div>
+              <!-- Usamos *ngFor para recorrer section2Data y crear los items del carrusel -->
+              <div *ngFor="let item of section2Data; let i = index" 
+                   [class.active]="i === 0" class="carousel-item">
+                <div class="row">
+                  <!-- Creamos un contenedor de 4 productos por fila -->
+                  <div class="col-md-3 text-center" *ngFor="let product of section2Data.slice(i * 4, (i + 1) * 4)">
+                    <div class="product-card">
+                      <!-- Imagen del producto -->
+                      <!-- <img [src]="product.productIMG" class="img-fluid" alt="{{ product.productName }}"> -->
+                      <img [src]="product.productIMG" class="img-fluid" alt="{{ product.productName }}">
+    
+                      <div class="product-info">
+                        <h5 class="product-name">{{ product.productName }}</h5>
+                        <p class="product-description">{{ product.productDescription }}</p>
+                      </div>
+                      <h5 class="product-price">Precio: {{ product.productPrice }}</h5>
                     </div>
+                  </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col text-center">
-                            <div class="product-card">
-                                <img src="assets/img/products/producto-5.jpg" class="img-fluid" alt="Producto 5">
-                                <div class="product-info">
-                                    <h5 class="product-name">Producto 5</h5>
-                                    <p class="product-description">Descripción breve del producto 5.</p>
-                                </div>
-                                <h5 class="product-price">Precio: $39.99</h5>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-                            <div class="product-card">
-                                <img src="assets/img/products/producto-6.jpg" class="img-fluid" alt="Producto 6">
-                                <div class="product-info">
-                                    <h5 class="product-name">Producto 6</h5>
-                                    <p class="product-description">Descripción breve del producto 6.</p>
-                                </div>
-                                <h5 class="product-price">Precio: $44.99</h5>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-                            <div class="product-card">
-                                <img src="assets/img/products/producto-7.jpg" class="img-fluid" alt="Producto 7">
-                                <div class="product-info">
-                                    <h5 class="product-name">Producto 7</h5>
-                                    <p class="product-description">Descripción breve del producto 7.</p>
-                                </div>
-                                <h5 class="product-price">Precio: $39.99</h5>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-                            <div class="product-card">
-                                <img src="assets/img/products/producto-8.jpg" class="img-fluid" alt="Producto 8">
-                                <div class="product-info">
-                                    <h5 class="product-name">Producto 8</h5>
-                                    <p class="product-description">Descripción breve del producto 8.</p>
-                                </div>
-                                <h5 class="product-price">Precio: $44.99</h5>
-                            </div>
-                        </div>                    
-                    </div>
-                </div>
+              </div>
             </div>
+          
+            <!-- Controles del carrusel -->
             <button class="carousel-control-prev" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
             </button>
         </div>
-    </div>
 </div>
