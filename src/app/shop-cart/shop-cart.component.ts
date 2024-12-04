@@ -61,24 +61,24 @@ export class ShopCartComponent implements OnInit {
 
   // Obtener la cantidad total de productos
   get totalQuantity(): number {
-    return this.cart.reduce((sum, product) => sum + product.cantidad, 0);
+    return this.cart.reduce((sum, product) => sum + product.quantity, 0);
   }
 
   // Obtener el precio total de todos los productos
   get totalPrice(): number {
-    return this.cart.reduce((sum, product) => sum + (product.precio * product.cantidad), 0);
+    return this.cart.reduce((sum, product) => sum + (product.price * product.quantity), 0);
   }
 
   // Aumentar la cantidad de un producto
   increaseQuantity(index: number): void {
-    this.cart[index].cantidad++;
+    this.cart[index].quantity++;
     this.updateCart(this.cart[index]);
   }
 
   // Disminuir la cantidad de un producto (sin bajar de 1)
   decreaseQuantity(index: number): void {
-    if (this.cart[index].cantidad > 1) {
-      this.cart[index].cantidad--;
+    if (this.cart[index].quantity > 1) {
+      this.cart[index].quantity--;
       this.updateCart(this.cart[index]);
     }
   }
