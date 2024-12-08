@@ -90,19 +90,26 @@ export class ShopCartComponent implements OnInit {
     this.deleteProductFromCart(product.id);
   }
 
-  // Método para actualizar el carrito en el backend
-  updateCart(products: any[]): void {
+
+  
+
+
+  updateCart(products: any | any[]): void {
     const userId = this.getUserId();
     if (userId !== null) {
-      // Asegúrate de enviar un array de productos, cada uno con las claves correctas
-      const cartUpdateData = { productos: products.map(product => ({
-        id_producto: product.id,  // Asegúrate de mapear 'id' a 'id_producto'
-        cantidad: product.quantity // Asegúrate de mapear 'quantity' a 'cantidad'
-      })) };
+      const productsArray = Array.isArray(products) ? products : [products];
   
-      console.log('Datos enviados al backend:', cartUpdateData); // Para depuración
+      const cartUpdateData = {
+        user_id: userId,  // Agregamos user_id aquí
+        productos: productsArray.map(product => ({
+          id_producto: product.id,
+          cantidad: product.quantity
+        }))
+      };
   
-      this.http.put(`${this.apiUrl}/carrito/${userId}`, cartUpdateData, {
+      console.log('Datos enviados al backend:', cartUpdateData);
+  
+      this.http.put(`${this.apiUrl}/carrito/update`, cartUpdateData, {
         headers: { 'Content-Type': 'application/json' }
       }).subscribe(
         (response) => {
@@ -114,6 +121,10 @@ export class ShopCartComponent implements OnInit {
       );
     }
   }
+  
+
+  
+  
     
   
   getSection2Data() {
