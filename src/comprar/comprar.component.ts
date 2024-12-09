@@ -21,7 +21,7 @@ export class ComprarComponent {
   // Métodos de pago disponibles
   paymentMethods = [
     { id: 1, name: 'Tarjeta de crédito' },
-    { id: 2, name: 'PayPal' },
+    { id: 2, name: 'peypal' },
     { id: 3, name: 'Transferencia bancaria' }
   ];
 

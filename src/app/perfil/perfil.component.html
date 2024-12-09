@@ -123,7 +123,7 @@
             <h6>Tarjetas Guardadas</h6>
             <ul class="list-group">
               <li class="list-group-item" *ngFor="let card of paymentMethods">
-                {{ card.type }} (**** {{ card.last4 }})
+                {{ card.tipo }} (******{{ card.numero_tarjeta.slice(6) }})
                 <button class="btn btn-sm btn-secondary ms-2" (click)="editPaymentMethod(card)">Editar</button>
                 <button class="btn btn-sm btn-danger ms-2" (click)="removePaymentMethod(card)">Eliminar</button>
               </li>
@@ -157,7 +157,14 @@
             <h6>Direcciones Guardadas</h6>
             <ul class="list-group">
               <li class="list-group-item" *ngFor="let address of addresses">
-                {{ address }}
+                {{ address.calle }}, 
+                {{ address.numero_exterior }}, 
+                {{ address.numero_interior }}, 
+                {{ address.colonia }}, 
+                {{ address.ciudad }}, 
+                {{ address.estado }}, 
+                {{ address.pais}}
+
                 <button class="btn btn-sm btn-danger ms-2" (click)="removeAddress(address)">Eliminar</button>
               </li>
             </ul>
