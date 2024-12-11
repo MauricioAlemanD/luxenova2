@@ -76,13 +76,14 @@ export class ShopCartComponent implements OnInit {
     if (userId !== null) {
       const productsArray = Array.isArray(products) ? products : [products]; 
       const cartUpdateData = {
+        user_id: userId,  
         productos: productsArray.map(product => ({
           id_producto: product.id,  
           cantidad: product.quantity 
         }))
       };
       console.log('Datos enviados al backend:', cartUpdateData); 
-      this.http.put(`${this.apiUrl}/carrito/${userId}`, cartUpdateData, {
+      this.http.put(`${this.apiUrl}/carrito/update`, cartUpdateData, {
         headers: { 'Content-Type': 'application/json' }
       }).subscribe(
         (response) => {

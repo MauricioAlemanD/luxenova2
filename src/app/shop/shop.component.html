@@ -9,9 +9,9 @@
             <h6>Rango de Precio</h6>
             <div class="price-slider">
               <label for="minPrice">Mínimo: ${{ minPrice }}</label>
-              <input type="range" id="minPrice" [(ngModel)]="minPrice" (input)="applyFilters()" min="0" max="500" step="1">
+              <input type="range" id="minPrice" [(ngModel)]="minPrice" (input)="applyFilters()" min="0" max="30000" step="100">
               <label for="maxPrice">Máximo: ${{ maxPrice }}</label>
-              <input type="range" id="maxPrice" [(ngModel)]="maxPrice" (input)="applyFilters()" min="0" max="500" step="1">
+              <input type="range" id="maxPrice" [(ngModel)]="maxPrice" (input)="applyFilters()" min="0" max="30000" step="100">
             </div>
           </div>
       
