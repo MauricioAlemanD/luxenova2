@@ -1,8 +1,44 @@
-
 <div class="container-fluid container-review-personal">
-  <h4>¿Haz comprado con nosotros?, ¡Deja tu opinión!</h4>
-<button class="btn btn-primary btn-opinion" (click)="writeReview()">Escribir Reseña de Producto</button>
+  <h4>¿Has comprado con nosotros? ¡Deja tu opinión!</h4>
+  <button class="btn btn-primary btn-opinion" (click)="openReviewPopup()">Escribir Reseña de Producto</button>
+</div>
 
+<!-- Ventana emergente (popup) para dejar la opinión -->
+<div class="popup" *ngIf="showPopup" (click)="closePopup()">
+  <div class="popup-content" (click)="$event.stopPropagation()">
+    <h4>Deja tu Opinión sobre el Producto</h4>
+
+    <form (ngSubmit)="submitReview()">
+      <!-- ComboBox para seleccionar el producto -->
+      <div class="form-group">
+        <label for="product">Selecciona un Producto</label>
+        <select id="product" [(ngModel)]="selectedProduct" name="product" class="form-control" required>
+          <option *ngFor="let product of purchasedProducts" [value]="product.id">{{ product.name }}</option>
+        </select>
+      </div>
+
+      <!-- Área de texto para escribir la reseña -->
+      <div class="form-group">
+        <label for="review">Escribe tu Reseña</label>
+        <textarea id="review" [(ngModel)]="reviewText" name="review" class="form-control" rows="5" required></textarea>
+      </div>
+
+      <!-- Sistema de valoración con estrellas -->
+      <div class="form-group">
+        <label>Calificación</label>
+        <div class="rating">
+          <span *ngFor="let star of stars; let i = index" (click)="setRating(i+1)">
+            <i class="fa" [ngClass]="{'fa-star': rating > i, 'fa-star-o': rating <= i}"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Botón de enviar opinión -->
+      <button type="submit" class="btn btn-primary">Enviar Opinión</button>
+    </form>
+
+    <button class="btn btn-secondary" (click)="closePopup()">Cerrar</button>
+  </div>
 </div>
 
 <div class="reseñas-relevantes container-fluid">
