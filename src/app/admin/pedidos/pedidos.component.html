@@ -12,9 +12,9 @@
       <h3>Pedidos Realizados</h3>
       <div *ngFor="let order of completedOrders" class="card mb-3">
         <div class="card-body">
-          <h5 class="card-title">Pedido ID: {{ order.id }}</h5>
-          <p class="card-text">Cliente: {{ order.customer }}</p>
-          <p class="card-text">Fecha: {{ order.date }}</p>
+          <h5 class="card-title">Pedido ID: {{ order.orden.id_orden }}</h5>
+          <p class="card-text">Cliente: {{ order.usuario.first_name }}</p>
+          <p class="card-text">Fecha: {{ order.orden.fecha_orden }}</p>
           <p class="card-text">Estado: <span class="badge bg-success">Realizado</span></p>
         </div>
       </div>
@@ -25,12 +25,12 @@
       <h3>Pedidos Pendientes</h3>
       <div *ngFor="let order of pendingOrders" class="card mb-3">
         <div class="card-body">
-          <h5 class="card-title">Pedido ID: {{ order.id }}</h5>
-          <p class="card-text">Cliente: {{ order.customer }}</p>
-          <p class="card-text">Fecha: {{ order.date }}</p>
+          <h5 class="card-title">Pedido ID: {{ order.orden.id_orden }}</h5>
+          <p class="card-text">Cliente: {{ order.usuario.first_name }}</p>
+          <p class="card-text">Fecha: {{ order.orden.fecha_orden }}</p>
           <p class="card-text">Estado: <span class="badge bg-warning">Pendiente</span></p>
           <!-- Botón para marcar como "Pedido Enviado" -->
-          <button class="btn btn-success" (click)="markAsShipped(order.id)">Pedido Enviado</button>
+          <button class="btn btn-success" (click)="markAsShipped(order.id_orden)">Pedido Enviado</button>
         </div>
       </div>
     </div>

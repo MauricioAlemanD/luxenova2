@@ -1,46 +1,41 @@
 <div class="container my-5 about-us">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0 logo-centered">
-        <h2 class="font-weight-bold finger-paint-regular">LUXENOVA</h2>
-      </div>
-      <div class="col-lg-6 kanit-medium">
-        <h2 class="display-6 text-dark fw-bold">{{ companyName }}</h2>
-        <p class="text-muted">{{ description }}</p>
-      </div>
+  <div class="row align-items-center">
+    <div class="col-lg-6 mb-4 mb-lg-0 logo-centered">
+      <h2 class="font-weight-bold finger-paint-regular">LUXENOVA</h2>
     </div>
-  
-    <div class="row mt-5">
-      <div class="col-md-6">
-        <h3 class="h5 text-secondary">Misión</h3>
-        <p>{{ mission }}</p>
-        <!-- Formulario para editar la Misión -->
-        <input type="text" class="form-control mt-3" [(ngModel)]="mission" placeholder="Editar misión">
-      </div>
-      <div class="col-md-6">
-        <h3 class="h5 text-secondary">Visión</h3>
-        <p>{{ vision }}</p>
-        <!-- Formulario para editar la Visión -->
-        <input type="text" class="form-control mt-3" [(ngModel)]="vision" placeholder="Editar visión">
-      </div>
+    <div class="col-lg-6 kanit-medium">
+      <h2 class="display-6 text-dark fw-bold">{{ companyName }}</h2>
+      <p class="text-muted">{{ description }}</p>
     </div>
-  
-    <div class="row mt-5">
-      <div class="col-12">
-        <h3 class="h5 text-secondary">¿Por qué elegirnos?</h3>
-        <ul class="list-group list-group-flush">
-          <li *ngFor="let reason of reasonsToChoose" class="list-group-item d-flex align-items-center">
-            <i class="fas fa-check-circle text-success me-2"></i> {{ reason }}
-          </li>
-        </ul>
-        <!-- Formulario para editar las razones -->
-        <input *ngFor="let reason of reasonsToChoose; let i = index" 
-               type="text" class="form-control mt-3" 
-               [(ngModel)]="reasonsToChoose[i]" 
-               placeholder="Editar razón {{ i + 1 }}">
-      </div>
-    </div>
-  
-    <!-- Botón para guardar cambios -->
-    <button class="btn btn-primary mt-4" (click)="onSaveChanges()">Guardar Cambios</button>
   </div>
-  
+
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <h3 class="h5 text-secondary">Misión</h3>
+      <p>{{ mission }}</p>
+      <input type="text" class="form-control mt-3" [(ngModel)]="mission" placeholder="Editar misión">
+    </div>
+    <div class="col-md-6">
+      <h3 class="h5 text-secondary">Visión</h3>
+      <p>{{ vision }}</p>
+      <input type="text" class="form-control mt-3" [(ngModel)]="vision" placeholder="Editar visión">
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3 class="h5 text-secondary">¿Por qué elegirnos?</h3>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let reason of pqeItems" class="list-group-item d-flex align-items-center">
+          <i class="fas fa-check-circle text-success me-2"></i> {{ reason }}
+        </li>
+      </ul>
+      <input *ngFor="let reason of pqeItems; let i = index" 
+             type="text" class="form-control mt-3" 
+             [(ngModel)]="pqeItems[i]" 
+             placeholder="Editar razón {{ i + 1 }}">
+    </div>
+  </div>
+
+  <button class="btn btn-primary mt-4" (click)="onSaveChanges()">Guardar Cambios</button>
+</div>

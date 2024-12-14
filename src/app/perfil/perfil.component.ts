@@ -1,37 +1,14 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth-service.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class PaymentService {
-  private apiUrl = 'http://localhost:5000'; // Reemplaza esto con la URL de tu API
-
-  constructor(private http: HttpClient) {}
-
-  // Obtener métodos de pago
-  getPaymentMethods(userId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/metodos_de_pago/${userId}`);
-  }
-
-  // Obtener direcciones
-  getAddresses(userId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/direcciones/${userId}`);
-  }
-
-  // Agregar una nueva dirección (si es necesario)
-  addAddress(userId: string, address: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/direcciones/${userId}`, address);
-  }
-
-  // Eliminar una dirección
-  removeAddress(userId: string, addressId: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/direcciones/${userId}/${addressId}`);
-  }
+interface Order {
+  id_orden: number;
+  fecha_orden: string;
+  productos: { id_producto: number, cantidad: number }[];
 }
 
 @Component({
@@ -39,34 +16,37 @@ export class PaymentService {
   standalone: true,
   imports: [RouterLink, CommonModule, HttpClientModule],
   templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.scss'],
-  providers: [PaymentService] // Proveedor del servicio
+  styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent implements OnInit {
   paymentMethods: any[] = [];
   addresses: any[] = [];
-  orders = [
-    { orderId: '001', productName: 'Producto 1', orderDate: '2024-11-01' },
-    { orderId: '002', productName: 'Producto 2', orderDate: '2024-10-25' }
-  ];
+  orders: any[] = [];
 
-  constructor(private authService: AuthService, private router: Router, private paymentService: PaymentService) {}
+  private apiUrl = 'http://localhost:5000'; // URL de tu API
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     if (!this.authService.isLoggedIn()) {
-      this.router.navigate(['/ingreso']);  // Redirige a /ingreso si no está autenticado
+      this.router.navigate(['/ingreso']);  // Redirige si no está autenticado
     } else {
       const user = sessionStorage.getItem('user');  // Obtiene el objeto user de sessionStorage
       if (user) {
         const userObj = JSON.parse(user);  // Parsea el objeto user
-        this.loadPaymentMethods(userObj.id);  // Carga los métodos de pago
-        this.loadAddresses(userObj.id);  // Carga las direcciones
+        this.loadPaymentMethods(userObj.id);  // Carga métodos de pago
+        this.loadAddresses(userObj.id);  // Carga direcciones
+        this.loadOrders(userObj.id);  // Carga las órdenes
       }
     }
   }
 
   loadPaymentMethods(userId: string) {
-    this.paymentService.getPaymentMethods(userId).subscribe(
+    this.http.get<any>(`${this.apiUrl}/metodos_de_pago/${userId}`).subscribe(
       (data) => {
         this.paymentMethods = data;
       },
@@ -77,17 +57,35 @@ export class PerfilComponent implements OnInit {
   }
 
   loadAddresses(userId: string) {
-    this.paymentService.getAddresses(userId).subscribe(
+    this.http.get<any>(`${this.apiUrl}/direcciones/${userId}`).subscribe(
       (data) => {
         this.addresses = data;
-        console.log(this.addresses);  // Agrega un log para verificar los datos
       },
       (error) => {
         console.error('Error al cargar las direcciones:', error);
       }
     );
   }
-  
+
+  loadOrders(userId: string) {
+    this.http.get<any>(`${this.apiUrl}/ordenes/${userId}`).subscribe(
+      (data) => {
+        // Aseguramos que 'data.ordenes' es un arreglo de tipo Order[]
+        this.orders = data.ordenes.map((order: Order) => {
+          return {
+            orderId: order.id_orden.toString(), // Usamos el id_orden como orderId
+            productName: `Producto ${order.productos[0].id_producto}`, // Creamos un nombre de producto con id_producto
+            orderDate: new Date(order.fecha_orden).toISOString() // Convertimos la fecha a formato ISO
+          };
+        });
+      },
+      (error) => {
+        console.error('Error al cargar las órdenes:', error);
+      }
+    );
+  }
+
+  // Métodos para editar, agregar y eliminar métodos de pago y direcciones
 
   editProfile() {
     alert('Editar perfil');
@@ -111,7 +109,7 @@ export class PerfilComponent implements OnInit {
       codigo_postal: '12345',
       pais: 'México'
     };
-    this.paymentService.addAddress('user_id', newAddress).subscribe(
+    this.http.post<any>(`${this.apiUrl}/direcciones/${'user_id'}`, newAddress).subscribe(
       (data) => {
         this.addresses.push(data); // Agregar la nueva dirección al array
       },
@@ -122,7 +120,7 @@ export class PerfilComponent implements OnInit {
   }
 
   removeAddress(address: any) {
-    this.paymentService.removeAddress('user_id', address.id_direccion).subscribe(
+    this.http.delete<any>(`${this.apiUrl}/direcciones/${'user_id'}/${address.id_direccion}`).subscribe(
       () => {
         this.addresses = this.addresses.filter(a => a.id_direccion !== address.id_direccion); // Eliminar dirección del array
       },
@@ -135,6 +133,8 @@ export class PerfilComponent implements OnInit {
   editPaymentMethod(card: any) {
     // Lógica para editar el método de pago
   }
+
+  // Métodos de sesión y datos de usuario
 
   getUserRole(): string {
     if (typeof window !== 'undefined' && sessionStorage) {

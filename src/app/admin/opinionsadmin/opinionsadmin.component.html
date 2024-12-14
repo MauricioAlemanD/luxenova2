@@ -10,7 +10,8 @@
         [date]="review.date">        
       </app-user-opinion>
 
-      <button class="btn btn-danger  mb-5">Eliminar Reseña</button>
+      <!-- <button id="delete-opinion-btn" class="btn btn-danger mb-5">Eliminar Reseña</button> -->
+      <button class="btn btn-danger mb-5" (click)="deleteReview(review.id)">Eliminar Reseña</button>
     </div>
     
   </div>
