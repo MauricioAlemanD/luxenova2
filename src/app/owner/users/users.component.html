@@ -1,32 +1,32 @@
 <div class="container my-5">
-    <h2>Gestión de Usuarios</h2>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nombre de Usuario</th>
-              <th>Correo Electrónico</th>
-              <th>Rol</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of users">
-              <td>{{ user.username }}</td>
-              <td>{{ user.email }}</td>
-              <td>
-                <select [(ngModel)]="user.role" class="form-select">
-                  <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
-                </select>
-              </td>
-              <td>
-                <button class="btn btn-primary" (click)="saveRole(user)">Guardar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <h2>Gestión de Usuarios</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre de Usuario</th>
+            <th>Correo Electrónico</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.first_name }}, ({{ user.roles[0].role }})</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <!-- El valor de 'user.role' se establecerá por defecto -->
+              <select [(ngModel)]="user.role" class="form-select">
+                <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+              </select>
+            </td>
+            <td>
+              <button class="btn btn-primary" (click)="saveRole(user)">Guardar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  
+</div>
