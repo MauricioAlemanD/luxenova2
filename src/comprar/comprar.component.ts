@@ -84,7 +84,7 @@ export class ComprarComponent implements OnInit {
           console.log("Payment methods response:", response); // Verificar respuesta
           this.paymentMethods = response.map(metodo => ({
             id: metodo.id_metodo_pago,
-            name: `${metodo.tipo} ${metodo.numero_tarjeta.slice(-8)}`
+            name: `${metodo.tipo} **********${metodo.numero_tarjeta.slice(-6)}`
           }));
           if (this.paymentMethods.length > 0) {
             this.selectedPaymentMethod = this.paymentMethods[0].id;

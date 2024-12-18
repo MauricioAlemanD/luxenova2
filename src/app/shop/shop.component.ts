@@ -25,7 +25,7 @@ export class ShopComponent {
   filteredProducts: Product[] = [];
   categories: string[] = ['Vapeador'];
   minPrice: number = 0;
-  maxPrice: number = 30000;
+  maxPrice: number = 5000;
   inStock: boolean = false;
   selectedCategory: string = '';
 

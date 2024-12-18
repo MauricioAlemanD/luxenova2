@@ -14,6 +14,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  
   section1Data: any[] = [];
   section2Data: any[] = [];
   categorias: string[] = [];  // Nueva variable para las categorías
@@ -24,6 +26,7 @@ export class HomeComponent implements OnInit {
     this.getSection1Data();  
     this.getSection2Data();  
     this.getCategorias();  // Llamamos a la función que obtiene las categorías
+    this.loadScripts(); 
   }
 
   isLoggedIn(): boolean {
@@ -76,4 +79,21 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  loadScripts() {
+    // Cargar dinámicamente los scripts
+    const script1 = document.createElement('script');
+    script1.src = 'https://cdn.botpress.cloud/webchat/v2.2/inject.js';
+    script1.async = true;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.src = 'https://files.bpcontent.cloud/2024/12/04/18/20241204181616-B94N9OXS.js';
+    script2.async = true;
+    document.body.appendChild(script2);
+  }
+
 }
+
+
+
